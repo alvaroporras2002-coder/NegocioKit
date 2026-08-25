@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Calculadora gratuita de precio de venta de NegocioKit."
+  >
+
+  <meta
+    name="theme-color"
+    content="#f47721"
+  >
+
+  <title>
+    Calculadora de Precio | NegocioKit
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="assets/css/styles.css"
+  >
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="nk-header">
+
+    <div class="nk-container nk-header-inner">
+
+      <a
+        href="index.html"
+        class="nk-brand"
+        aria-label="NegocioKit"
+      >
+
+        <img
+          src="assets/images/logo.png"
+          alt="NegocioKit"
+          width="42"
+          height="42"
+        >
+
+        <div class="nk-brand-name">
+          Negocio<span>Kit</span>
+        </div>
+
+      </a>
+
+      <nav
+        class="nk-nav"
+        aria-label="Navegación principal"
+      >
+
+        <a
+          href="index.html"
+          class="nk-nav-link"
+        >
+          Inicio
+        </a>
+
+        <a
+          href="tools.html"
+          class="nk-nav-link"
+        >
+          Herramientas
+        </a>
+
+        <a
+          href="index.html#recursos"
+          class="nk-nav-link"
+        >
+          Recursos
+        </a>
+
+        <a
+          href="index.html#precios"
+          class="nk-nav-link"
+        >
+          Precios
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- MAIN -->
+
+  <main>
+
+    <section class="nk-section">
+
+      <div class="nk-container">
+
+        <div
+          style="
+            max-width: 760px;
+            margin-bottom: 34px;
+          "
+        >
+
+          <div class="nk-eyebrow">
+            Herramienta gratuita
+          </div>
+
+          <h1 class="nk-title">
+            Calculadora de Precio de Venta
+          </h1>
+
+          <p class="nk-subtitle">
+            Descubre cuánto deberías cobrar por un producto
+            según su costo y el margen que quieres obtener.
+          </p>
+
+        </div>
+
+
+        <!-- CALCULATOR -->
+
+        <div
+          class="nk-grid nk-grid-2"
+          style="
+            align-items: start;
+          "
+        >
+
+          <!-- INPUTS -->
+
+          <section class="nk-card">
+
+            <div class="nk-card-body">
+
+              <h2 style="margin-top: 0;">
+                Datos del producto
+              </h2>
+
+              <form
+                id="priceCalculator"
+                class="nk-form"
+                novalidate
+              >
+
+                <div class="nk-field">
+
+                  <label
+                    class="nk-label"
+                    for="cost"
+                  >
+                    Costo del producto
+                  </label>
+
+                  <input
+                    id="cost"
+                    name="cost"
+                    class="nk-input"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                    placeholder="Ej. 5.00"
+                    required
+                  >
+
+                  <small
+                    style="color: var(--nk-text-muted);"
+                  >
+                    Incluye ingredientes, empaque u otros
+                    costos directamente relacionados.
+                  </small>
+
+                </div>
+
+
+                <div class="nk-field">
+
+                  <label
+                    class="nk-label"
+                    for="margin"
+                  >
+                    Margen de ganancia deseado (%)
+                  </label>
+
+                  <input
+                    id="margin"
+                    name="margin"
+                    class="nk-input"
+                    type="number"
+                    min="0"
+                    max="99.99"
+                    step="0.1"
+                    inputmode="decimal"
+                    value="40"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="nk-field">
+
+                  <label
+                    class="nk-label"
+                    for="commission"
+                  >
+                    Comisión o costo adicional (%)
+                  </label>
+
+                  <input
+                    id="commission"
+                    name="commission"
+                    class="nk-input"
+                    type="number"
+                    min="0"
+                    max="90"
+                    step="0.1"
+                    inputmode="decimal"
+                    value="0"
+                  >
+
+                  <small
+                    style="color: var(--nk-text-muted);"
+                  >
+                    Puedes usarlo para simular una comisión
+                    de marketplace u otro costo porcentual.
+                  </small>
+
+                </div>
+
+
+                <div
+                  id="calculatorError"
+                  role="alert"
+                  style="
+                    display: none;
+                    padding: 12px 14px;
+                    background: var(--nk-danger-light);
+                    color: var(--nk-danger);
+                    border-radius: var(--nk-radius-md);
+                    font-size: 0.88rem;
+                    font-weight: 650;
+                  "
+                >
+                </div>
+
+
+                <button
+                  type="submit"
+                  class="nk-btn nk-btn-primary"
+                >
+                  Calcular precio
+                </button>
+
+              </form>
+
+            </div>
+
+          </section>
+
+
+          <!-- RESULTS -->
+
+          <section
+            class="nk-card"
+            aria-live="polite"
+          >
+
+            <div class="nk-card-body">
+
+              <div class="nk-eyebrow">
+                Resultado
+              </div>
+
+              <h2 style="margin-top: 0;">
+                Tu precio recomendado
+              </h2>
+
+
+              <div
+                style="
+                  margin: 24px 0;
+                  padding: 24px;
+                  background: var(--nk-orange-light);
+                  border-radius: var(--nk-radius-lg);
+                  text-align: center;
+                "
+              >
+
+                <div
+                  style="
+                    color: var(--nk-text-muted);
+                    font-size: 0.82rem;
+                    font-weight: 700;
+                  "
+                >
+                  PRECIO DE VENTA
+                </div>
+
+                <div
+                  id="salePrice"
+                  style="
+                    margin-top: 6px;
+                    color: var(--nk-orange-dark);
+                    font-size: 2.8rem;
+                    font-weight: 900;
+                    letter-spacing: -0.04em;
+                  "
+                >
+                  $0.00
+                </div>
+
+              </div>
+
+
+              <div
+                class="nk-grid nk-grid-2"
+                style="gap: 12px;"
+              >
+
+                <div class="nk-stat-card">
+
+                  <div class="nk-stat-label">
+                    Ganancia
+                  </div>
+
+                  <div
+                    id="profit"
+                    class="nk-stat-value"
+                  >
+                    $0.00
+                  </div>
+
+                </div>
+
+
+                <div class="nk-stat-card">
+
+                  <div class="nk-stat-label">
+                    Margen efectivo
+                  </div>
+
+                  <div
+                    id="effectiveMargin"
+                    class="nk-stat-value"
+                  >
+                    0%
+                  </div>
+
+                </div>
+
+
+                <div class="nk-stat-card">
+
+                  <div class="nk-stat-label">
+                    Comisión
+                  </div>
+
+                  <div
+                    id="commissionValue"
+                    class="nk-stat-value"
+                  >
+                    $0.00
+                  </div>
+
+                </div>
+
+
+                <div class="nk-stat-card">
+
+                  <div class="nk-stat-label">
+                    Ganancia neta
+                  </div>
+
+                  <div
+                    id="netProfit"
+                    class="nk-stat-value"
+                  >
+                    $0.00
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div
+                style="
+                  margin-top: 24px;
+                  padding-top: 20px;
+                  border-top: 1px solid var(--nk-border);
+                "
+              >
+
+                <strong>
+                  ¿Cómo se calcula?
+                </strong>
+
+                <p
+                  style="
+                    color: var(--nk-text-muted);
+                    font-size: 0.9rem;
+                  "
+                >
+                  NegocioKit utiliza tu costo y el margen deseado
+                  para obtener un precio de venta estimado.
+                  La comisión se calcula posteriormente sobre
+                  ese precio.
+                </p>
+
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!-- INFO -->
+
+        <section
+          class="nk-card"
+          style="
+            margin-top: 24px;
+          "
+        >
+
+          <div class="nk-card-body">
+
+            <div class="nk-grid nk-grid-3">
+
+              <div>
+
+                <span class="nk-badge nk-badge-green">
+                  Consejo
+                </span>
+
+                <h3>
+                  No confundas margen con markup
+                </h3>
+
+                <p class="nk-subtitle">
+                  El margen mide la utilidad sobre el precio de
+                  venta, mientras el markup mide el aumento sobre
+                  el costo.
+                </p>
+
+              </div>
+
+
+              <div>
+
+                <span class="nk-badge nk-badge-orange">
+                  Restaurantes
+                </span>
+
+                <h3>
+                  Considera tus costos reales
+                </h3>
+
+                <p class="nk-subtitle">
+                  Ingredientes, empaques, desperdicio y otros
+                  costos pueden cambiar tu rentabilidad.
+                </p>
+
+              </div>
+
+
+              <div>
+
+                <span class="nk-badge nk-badge-gray">
+                  NegocioKit Pro
+                </span>
+
+                <h3>
+                  Guarda tus productos
+                </h3>
+
+                <p class="nk-subtitle">
+                  En una futura versión Pro podrás guardar
+                  productos y comparar diferentes escenarios.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="nk-footer">
+
+    <div class="nk-container">
+
+      <div class="nk-footer-grid">
+
+        <div>
+
+          <div class="nk-brand">
+
+            <img
+              src="assets/images/logo.png"
+              alt=""
+              width="42"
+              height="42"
+            >
+
+            <div class="nk-brand-name">
+              Negocio<span>Kit</span>
+            </div>
+
+          </div>
+
+          <p>
+            Recursos digitales para pequeños negocios.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            Herramientas
+          </strong>
+
+          <p>
+            <a href="tools.html">
+              Todas las herramientas
+            </a>
+          </p>
+
+          <p>
+            <a href="calculator-price.html">
+              Precio de venta
+            </a>
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            NegocioKit
+          </strong>
+
+          <p>
+            <a href="index.html#recursos">
+              Recursos
+            </a>
+          </p>
+
+          <p>
+            <a href="index.html#precios">
+              Precios
+            </a>
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            Legal
+          </strong>
+
+          <p>
+            <a href="#">
+              Privacidad
+            </a>
+          </p>
+
+          <p>
+            <a href="#">
+              Términos
+            </a>
+          </p>
+
+        </div>
+
+      </div>
+
+      <div
+        style="
+          margin-top: 34px;
+          padding-top: 20px;
+          border-top: 1px solid rgba(255,255,255,0.12);
+          color: #9fa8b1;
+          font-size: 0.82rem;
+        "
+      >
+        © 2026 NegocioKit. Todos los derechos reservados.
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- CALCULATOR LOGIC -->
+
+  <script>
+    (function () {
+
+      "use strict";
+
+      const form =
+        document.getElementById("priceCalculator");
+
+      const costInput =
+        document.getElementById("cost");
+
+      const marginInput =
+        document.getElementById("margin");
+
+      const commissionInput =
+        document.getElementById("commission");
+
+      const errorBox =
+        document.getElementById("calculatorError");
+
+      const salePriceOutput =
+        document.getElementById("salePrice");
+
+      const profitOutput =
+        document.getElementById("profit");
+
+      const effectiveMarginOutput =
+        document.getElementById("effectiveMargin");
+
+      const commissionValueOutput =
+        document.getElementById("commissionValue");
+
+      const netProfitOutput =
+        document.getElementById("netProfit");
+
+
+      function money(value) {
+
+        return new Intl.NumberFormat(
+          "en-US",
+          {
+            style: "currency",
+            currency: "USD",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          }
+        ).format(value);
+
+      }
+
+
+      function showError(message) {
+
+        errorBox.textContent = message;
+
+        errorBox.style.display = "block";
+
+      }
+
+
+      function clearError() {
+
+        errorBox.textContent = "";
+
+        errorBox.style.display = "none";
+
+      }
+
+
+      form.addEventListener(
+        "submit",
+        function (event) {
+
+          event.preventDefault();
+
+          clearError();
+
+
+          const cost =
+            Number.parseFloat(
+              costInput.value
+            );
+
+          const marginPercent =
+            Number.parseFloat(
+              marginInput.value
+            );
+
+          const commissionPercent =
+            Number.parseFloat(
+              commissionInput.value || "0"
+            );
+
+
+          if (!Number.isFinite(cost) || cost <= 0) {
+
+            showError(
+              "Ingresa un costo mayor que 0."
+            );
+
+            costInput.focus();
+
+            return;
+
+          }
+
+
+          if (
+            !Number.isFinite(marginPercent) ||
+            marginPercent < 0 ||
+            marginPercent >= 100
+          ) {
+
+            showError(
+              "El margen debe estar entre 0% y 99.99%."
+            );
+
+            marginInput.focus();
+
+            return;
+
+          }
+
+
+          if (
+            !Number.isFinite(commissionPercent) ||
+            commissionPercent < 0 ||
+            commissionPercent >= 90
+          ) {
+
+            showError(
+              "La comisión debe estar entre 0% y 89.99%."
+            );
+
+            commissionInput.focus();
+
+            return;
+
+          }
+
+
+          /*
+           * Margin formula:
+           *
+           * Price = Cost / (1 - Margin)
+           */
+
+          const margin =
+            marginPercent / 100;
+
+          const commissionRate =
+            commissionPercent / 100;
+
+
+          const salePrice =
+            cost / (1 - margin);
+
+
+          const profit =
+            salePrice - cost;
+
+
+          const commissionValue =
+            salePrice * commissionRate;
+
+
+          const netProfit =
+            profit - commissionValue;
+
+
+          const effectiveMargin =
+            salePrice > 0
+              ? (netProfit / salePrice) * 100
+              : 0;
+
+
+          salePriceOutput.textContent =
+            money(salePrice);
+
+          profitOutput.textContent =
+            money(profit);
+
+          commissionValueOutput.textContent =
+            money(commissionValue);
+
+          netProfitOutput.textContent =
+            money(netProfit);
+
+          effectiveMarginOutput.textContent =
+            effectiveMargin.toFixed(1) + "%";
+
+        }
+      );
+
+    })();
+  </script>
+
+</body>
+</html>
