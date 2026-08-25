@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Calculadora de margen y markup de NegocioKit."
+  >
+
+  <meta
+    name="theme-color"
+    content="#f47721"
+  >
+
+  <title>
+    Calculadora de Margen | NegocioKit
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="assets/css/styles.css"
+  >
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="nk-header">
+
+    <div class="nk-container nk-header-inner">
+
+      <a
+        href="index.html"
+        class="nk-brand"
+        aria-label="NegocioKit"
+      >
+
+        <img
+          src="assets/images/logo.png"
+          alt="NegocioKit"
+          width="42"
+          height="42"
+        >
+
+        <div class="nk-brand-name">
+          Negocio<span>Kit</span>
+        </div>
+
+      </a>
+
+      <nav
+        class="nk-nav"
+        aria-label="Navegación principal"
+      >
+
+        <a
+          href="index.html"
+          class="nk-nav-link"
+        >
+          Inicio
+        </a>
+
+        <a
+          href="tools.html"
+          class="nk-nav-link"
+        >
+          Herramientas
+        </a>
+
+        <a
+          href="index.html#recursos"
+          class="nk-nav-link"
+        >
+          Recursos
+        </a>
+
+        <a
+          href="index.html#precios"
+          class="nk-nav-link"
+        >
+          Precios
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- MAIN -->
+
+  <main>
+
+    <section class="nk-section">
+
+      <div class="nk-container">
+
+        <div
+          style="
+            max-width: 760px;
+            margin-bottom: 34px;
+          "
+        >
+
+          <div class="nk-eyebrow">
+            Herramienta gratuita
+          </div>
+
+          <h1 class="nk-title">
+            Calculadora de Margen
+          </h1>
+
+          <p class="nk-subtitle">
+            Descubre cuánto ganas realmente por cada producto
+            y entiende la diferencia entre margen y markup.
+          </p>
+
+        </div>
+
+
+        <!-- CALCULATOR -->
+
+        <div
+          class="nk-grid nk-grid-2"
+          style="align-items: start;"
+        >
+
+          <!-- INPUTS -->
+
+          <section class="nk-card">
+
+            <div class="nk-card-body">
+
+              <h2 style="margin-top: 0;">
+                Datos de venta
+              </h2>
+
+              <form
+                id="marginCalculator"
+                class="nk-form"
+                novalidate
+              >
+
+                <div class="nk-field">
+
+                  <label
+                    class="nk-label"
+                    for="cost"
+                  >
+                    Costo del producto
+                  </label>
+
+                  <input
+                    id="cost"
+                    class="nk-input"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                    placeholder="Ej. 5.00"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="nk-field">
+
+                  <label
+                    class="nk-label"
+                    for="salePrice"
+                  >
+                    Precio de venta
+                  </label>
+
+                  <input
+                    id="salePrice"
+                    class="nk-input"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                    placeholder="Ej. 12.00"
+                    required
+                  >
+
+                </div>
+
+
+                <div
+                  id="calculatorError"
+                  role="alert"
+                  style="
+                    display: none;
+                    padding: 12px 14px;
+                    background: var(--nk-danger-light);
+                    color: var(--nk-danger);
+                    border-radius: var(--nk-radius-md);
+                    font-size: 0.88rem;
+                    font-weight: 650;
+                  "
+                >
+                </div>
+
+
+                <button
+                  type="submit"
+                  class="nk-btn nk-btn-primary"
+                >
+                  Calcular margen
+                </button>
+
+              </form>
+
+            </div>
+
+          </section>
+
+
+          <!-- RESULTS -->
+
+          <section
+            class="nk-card"
+            aria-live="polite"
+          >
+
+            <div class="nk-card-body">
+
+              <div class="nk-eyebrow">
+                Resultado
+              </div>
+
+              <h2 style="margin-top: 0;">
+                Rentabilidad del producto
+              </h2>
+
+
+              <div
+                style="
+                  margin: 24px 0;
+                  padding: 24px;
+                  background: var(--nk-green-light);
+                  border-radius: var(--nk-radius-lg);
+                  text-align: center;
+                "
+              >
+
+                <div
+                  style="
+                    color: var(--nk-text-muted);
+                    font-size: 0.82rem;
+                    font-weight: 700;
+                  "
+                >
+                  MARGEN BRUTO
+                </div>
+
+                <div
+                  id="marginResult"
+                  style="
+                    margin-top: 6px;
+                    color: var(--nk-green);
+                    font-size: 2.8rem;
+                    font-weight: 900;
+                    letter-spacing: -0.04em;
+                  "
+                >
+                  0%
+                </div>
+
+              </div>
+
+
+              <div
+                class="nk-grid nk-grid-2"
+                style="gap: 12px;"
+              >
+
+                <div class="nk-stat-card">
+
+                  <div class="nk-stat-label">
+                    Ganancia
+                  </div>
+
+                  <div
+                    id="profit"
+                    class="nk-stat-value"
+                  >
+                    $0.00
+                  </div>
+
+                </div>
+
+
+                <div class="nk-stat-card">
+
+                  <div class="nk-stat-label">
+                    Markup
+                  </div>
+
+                  <div
+                    id="markup"
+                    class="nk-stat-value"
+                  >
+                    0%
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div
+                style="
+                  margin-top: 24px;
+                  padding-top: 20px;
+                  border-top: 1px solid var(--nk-border);
+                "
+              >
+
+                <strong>
+                  Fórmula utilizada
+                </strong>
+
+                <p
+                  style="
+                    color: var(--nk-text-muted);
+                    font-size: 0.9rem;
+                  "
+                >
+                  Margen = Ganancia ÷ Precio de venta.
+                  Markup = Ganancia ÷ Costo.
+                </p>
+
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!-- EDUCATION -->
+
+        <section
+          class="nk-card"
+          style="margin-top: 24px;"
+        >
+
+          <div class="nk-card-body">
+
+            <div class="nk-grid nk-grid-3">
+
+              <div>
+
+                <span class="nk-badge nk-badge-green">
+                  Margen
+                </span>
+
+                <h3>
+                  ¿Qué significa?
+                </h3>
+
+                <p class="nk-subtitle">
+                  Indica qué porcentaje del precio de venta
+                  queda como ganancia antes de otros gastos.
+                </p>
+
+              </div>
+
+
+              <div>
+
+                <span class="nk-badge nk-badge-orange">
+                  Markup
+                </span>
+
+                <h3>
+                  ¿Qué significa?
+                </h3>
+
+                <p class="nk-subtitle">
+                  Indica cuánto aumentaste el precio respecto
+                  al costo original del producto.
+                </p>
+
+              </div>
+
+
+              <div>
+
+                <span class="nk-badge nk-badge-gray">
+                  NegocioKit
+                </span>
+
+                <h3>
+                  Siguiente nivel
+                </h3>
+
+                <p class="nk-subtitle">
+                  Próximamente podrás guardar productos,
+                  comparar escenarios y analizar tu catálogo.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="nk-footer">
+
+    <div class="nk-container">
+
+      <div class="nk-footer-grid">
+
+        <div>
+
+          <div class="nk-brand">
+
+            <img
+              src="assets/images/logo.png"
+              alt=""
+              width="42"
+              height="42"
+            >
+
+            <div class="nk-brand-name">
+              Negocio<span>Kit</span>
+            </div>
+
+          </div>
+
+          <p>
+            Recursos digitales para pequeños negocios.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            Herramientas
+          </strong>
+
+          <p>
+            <a href="tools.html">
+              Todas las herramientas
+            </a>
+          </p>
+
+          <p>
+            <a href="calculator-price.html">
+              Precio de venta
+            </a>
+          </p>
+
+          <p>
+            <a href="calculator-margin.html">
+              Margen
+            </a>
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            NegocioKit
+          </strong>
+
+          <p>
+            <a href="index.html#recursos">
+              Recursos
+            </a>
+          </p>
+
+          <p>
+            <a href="index.html#precios">
+              Precios
+            </a>
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            Legal
+          </strong>
+
+          <p>
+            <a href="#">
+              Privacidad
+            </a>
+          </p>
+
+          <p>
+            <a href="#">
+              Términos
+            </a>
+          </p>
+
+        </div>
+
+      </div>
+
+      <div
+        style="
+          margin-top: 34px;
+          padding-top: 20px;
+          border-top: 1px solid rgba(255,255,255,0.12);
+          color: #9fa8b1;
+          font-size: 0.82rem;
+        "
+      >
+        © 2026 NegocioKit. Todos los derechos reservados.
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- CALCULATOR LOGIC -->
+
+  <script>
+    (function () {
+
+      "use strict";
+
+      const form =
+        document.getElementById(
+          "marginCalculator"
+        );
+
+      const costInput =
+        document.getElementById("cost");
+
+      const salePriceInput =
+        document.getElementById(
+          "salePrice"
+        );
+
+      const errorBox =
+        document.getElementById(
+          "calculatorError"
+        );
+
+      const marginResult =
+        document.getElementById(
+          "marginResult"
+        );
+
+      const profitOutput =
+        document.getElementById("profit");
+
+      const markupOutput =
+        document.getElementById(
+          "markup"
+        );
+
+
+      function money(value) {
+
+        return new Intl.NumberFormat(
+          "en-US",
+          {
+            style: "currency",
+            currency: "USD",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          }
+        ).format(value);
+
+      }
+
+
+      function showError(message) {
+
+        errorBox.textContent =
+          message;
+
+        errorBox.style.display =
+          "block";
+
+      }
+
+
+      function clearError() {
+
+        errorBox.textContent = "";
+
+        errorBox.style.display =
+          "none";
+
+      }
+
+
+      form.addEventListener(
+        "submit",
+        function (event) {
+
+          event.preventDefault();
+
+          clearError();
+
+
+          const cost =
+            Number.parseFloat(
+              costInput.value
+            );
+
+          const salePrice =
+            Number.parseFloat(
+              salePriceInput.value
+            );
+
+
+          if (
+            !Number.isFinite(cost) ||
+            cost <= 0
+          ) {
+
+            showError(
+              "Ingresa un costo mayor que 0."
+            );
+
+            costInput.focus();
+
+            return;
+          }
+
+
+          if (
+            !Number.isFinite(salePrice) ||
+            salePrice <= 0
+          ) {
+
+            showError(
+              "Ingresa un precio de venta mayor que 0."
+            );
+
+            salePriceInput.focus();
+
+            return;
+          }
+
+
+          if (salePrice < cost) {
+
+            showError(
+              "El precio de venta es menor que el costo. Verifica los valores."
+            );
+
+            return;
+          }
+
+
+          const profit =
+            salePrice - cost;
+
+
+          const margin =
+            (profit / salePrice) * 100;
+
+
+          const markup =
+            (profit / cost) * 100;
+
+
+          marginResult.textContent =
+            margin.toFixed(1) + "%";
+
+
+          profitOutput.textContent =
+            money(profit);
+
+
+          markupOutput.textContent =
+            markup.toFixed(1) + "%";
+
+        }
+      );
+
+    })();
+  </script>
+
+</body>
+</html>
