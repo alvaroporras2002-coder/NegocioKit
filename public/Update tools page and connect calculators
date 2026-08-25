@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Calculadora de punto de equilibrio para restaurantes y pequeños negocios."
+  >
+
+  <meta
+    name="theme-color"
+    content="#f47721"
+  >
+
+  <title>
+    Punto de Equilibrio | NegocioKit
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="assets/css/styles.css"
+  >
+</head>
+
+<body>
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header class="nk-header">
+
+    <div class="nk-container nk-header-inner">
+
+      <a
+        href="index.html"
+        class="nk-brand"
+        aria-label="NegocioKit - Inicio"
+      >
+
+        <img
+          src="assets/images/logo.png"
+          alt="Logo de NegocioKit"
+          width="42"
+          height="42"
+        >
+
+        <div class="nk-brand-name">
+          Negocio<span>Kit</span>
+        </div>
+
+      </a>
+
+
+      <nav
+        class="nk-nav"
+        aria-label="Navegación principal"
+      >
+
+        <a
+          href="index.html"
+          class="nk-nav-link"
+        >
+          Inicio
+        </a>
+
+        <a
+          href="tools.html"
+          class="nk-nav-link"
+          aria-current="page"
+        >
+          Herramientas
+        </a>
+
+        <a
+          href="index.html#recursos"
+          class="nk-nav-link"
+        >
+          Recursos
+        </a>
+
+        <a
+          href="index.html#precios"
+          class="nk-nav-link"
+        >
+          Precios
+        </a>
+
+      </nav>
+
+
+      <a
+        href="index.html#precios"
+        class="nk-btn nk-btn-primary"
+      >
+        Ver Pro
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main>
+
+    <section class="nk-section">
+
+      <div class="nk-container">
+
+        <div
+          style="
+            max-width: 800px;
+            margin-bottom: 34px;
+          "
+        >
+
+          <div class="nk-eyebrow">
+            Herramienta NegocioKit Pro
+          </div>
+
+          <h1 class="nk-title">
+            Calculadora de Punto de Equilibrio
+          </h1>
+
+          <p class="nk-subtitle">
+            Descubre cuántas ventas necesitas generar para
+            cubrir tus costos antes de comenzar a obtener
+            utilidad.
+          </p>
+
+        </div>
+
+
+        <!-- =================================================
+             CALCULATOR
+             ================================================= -->
+
+        <div
+          class="nk-grid nk-grid-2"
+          style="align-items: start;"
+        >
+
+
+          <!-- INPUTS -->
+
+          <section class="nk-card">
+
+            <div class="nk-card-body">
+
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  gap: 12px;
+                  margin-bottom: 20px;
+                  flex-wrap: wrap;
+                "
+              >
+
+                <h2 style="margin: 0;">
+                  Datos de tu negocio
+                </h2>
+
+                <span class="nk-badge nk-badge-orange">
+                  Pro
+                </span>
+
+              </div>
+
+
+              <form
+                id="breakEvenCalculator"
+                class="nk-form"
+                novalidate
+              >
+
+
+                <!-- FIXED COSTS -->
+
+                <div class="nk-field">
+
+                  <label
+                    class="nk-label"
+                    for="fixedCosts"
+                  >
+                    Costos fijos mensuales
+                  </label>
+
+                  <input
+                    id="fixedCosts"
+                    class="nk-input"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                    placeholder="Ej. 5000"
+                    required
+                  >
+
+                  <small
+                    style="
+                      color: var(--nk-text-muted);
+                    "
+                  >
+                    Alquiler, salarios, servicios,
+                    software y otros gastos fijos.
+                  </small>
+
+                </div>
+
+
+                <!-- SALE PRICE -->
+
+                <div class="nk-field">
+
+                  <label
+                    class="nk-label"
+                    for="averageSale"
+                  >
+                    Venta promedio por orden
+                  </label>
+
+                  <input
+                    id="averageSale"
+                    class="nk-input"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                    placeholder="Ej. 25"
+                    required
+                  >
+
+                  <small
+                    style="
+                      color: var(--nk-text-muted);
+                    "
+                  >
+                    Tu ingreso promedio por producto,
+                    ticket u orden.
+                  </small>
+
+                </div>
+
+
+                <!-- VARIABLE COST -->
+
+                <div class="nk-field">
+
+                  <label
+                    class="nk-label"
+                    for="variableCost"
+                  >
+                    Costo variable por orden
+                  </label>
+
+                  <input
+                    id="variableCost"
+                    class="nk-input"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                    placeholder="Ej. 10"
+                    required
+                  >
+
+                  <small
+                    style="
+                      color: var(--nk-text-muted);
+                    "
+                  >
+                    Ingredientes, empaque o costos que
+                    aumentan cada vez que vendes.
+                  </small>
+
+                </div>
+
+
+                <!-- TARGET SALES -->
+
+                <div class="nk-field">
+
+                  <label
+                    class="nk-label"
+                    for="targetUnits"
+                  >
+                    Ventas mensuales estimadas
+                    <span
+                      style="
+                        color: var(--nk-text-soft);
+                        font-weight: 500;
+                      "
+                    >
+                      (opcional)
+                    </span>
+                  </label>
+
+                  <input
+                    id="targetUnits"
+                    class="nk-input"
+                    type="number"
+                    min="0"
+                    step="1"
+                    inputmode="numeric"
+                    placeholder="Ej. 500"
+                  >
+
+                </div>
+
+
+                <div
+                  id="calculatorError"
+                  role="alert"
+                  style="
+                    display: none;
+                    padding: 12px 14px;
+                    background: var(--nk-danger-light);
+                    color: var(--nk-danger);
+                    border-radius: var(--nk-radius-md);
+                    font-size: 0.88rem;
+                    font-weight: 650;
+                  "
+                >
+                </div>
+
+
+                <button
+                  type="submit"
+                  class="nk-btn nk-btn-primary"
+                >
+                  Calcular punto de equilibrio
+                </button>
+
+              </form>
+
+            </div>
+
+          </section>
+
+
+          <!-- =================================================
+               RESULTS
+               ================================================= -->
+
+          <section
+            class="nk-card"
+            aria-live="polite"
+          >
+
+            <div class="nk-card-body">
+
+              <div class="nk-eyebrow">
+                Resultado
+              </div>
+
+              <h2 style="margin-top: 0;">
+                Tu punto de equilibrio
+              </h2>
+
+
+              <div
+                style="
+                  margin: 24px 0;
+                  padding: 24px;
+                  background: var(--nk-orange-light);
+                  border-radius: var(--nk-radius-lg);
+                  text-align: center;
+                "
+              >
+
+                <div
+                  style="
+                    color: var(--nk-text-muted);
+                    font-size: 0.82rem;
+                    font-weight: 700;
+                  "
+                >
+                  ORDENES NECESARIAS
+                </div>
+
+                <div
+                  id="breakEvenUnits"
+                  style="
+                    margin-top: 6px;
+                    color: var(--nk-orange-dark);
+                    font-size: 2.8rem;
+                    font-weight: 900;
+                    letter-spacing: -0.04em;
+                  "
+                >
+                  0
+                </div>
+
+              </div>
+
+
+              <div
+                class="nk-grid nk-grid-2"
+                style="gap: 12px;"
+              >
+
+                <div class="nk-stat-card">
+
+                  <div class="nk-stat-label">
+                    Ventas necesarias
+                  </div>
+
+                  <div
+                    id="breakEvenRevenue"
+                    class="nk-stat-value"
+                  >
+                    $0.00
+                  </div>
+
+                </div>
+
+
+                <div class="nk-stat-card">
+
+                  <div class="nk-stat-label">
+                    Margen contribución
+                  </div>
+
+                  <div
+                    id="contributionMargin"
+                    class="nk-stat-value"
+                  >
+                    0%
+                  </div>
+
+                </div>
+
+
+                <div class="nk-stat-card">
+
+                  <div class="nk-stat-label">
+                    Ganancia objetivo
+                  </div>
+
+                  <div
+                    id="targetProfit"
+                    class="nk-stat-value"
+                  >
+                    $0.00
+                  </div>
+
+                </div>
+
+
+                <div class="nk-stat-card">
+
+                  <div class="nk-stat-label">
+                    Resultado estimado
+                  </div>
+
+                  <div
+                    id="projectedProfit"
+                    class="nk-stat-value"
+                  >
+                    $0.00
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div
+                style="
+                  margin-top: 24px;
+                  padding-top: 20px;
+                  border-top: 1px solid var(--nk-border);
+                "
+              >
+
+                <strong>
+                  Fórmula
+                </strong>
+
+                <p
+                  style="
+                    color: var(--nk-text-muted);
+                    font-size: 0.9rem;
+                  "
+                >
+                  Punto de equilibrio =
+                  Costos fijos ÷ (Venta promedio -
+                  Costo variable por orden).
+                </p>
+
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!-- =================================================
+             EDUCATIONAL CARDS
+             ================================================= -->
+
+        <section
+          class="nk-card"
+          style="margin-top: 24px;"
+        >
+
+          <div class="nk-card-body">
+
+            <div class="nk-grid nk-grid-3">
+
+
+              <article>
+
+                <span class="nk-badge nk-badge-orange">
+                  01
+                </span>
+
+                <h3>
+                  Costos fijos
+                </h3>
+
+                <p class="nk-subtitle">
+                  Son costos que normalmente permanecen
+                  relativamente constantes aunque vendas
+                  más o menos.
+                </p>
+
+              </article>
+
+
+              <article>
+
+                <span class="nk-badge nk-badge-green">
+                  02
+                </span>
+
+                <h3>
+                  Margen de contribución
+                </h3>
+
+                <p class="nk-subtitle">
+                  Es la parte de cada venta que queda
+                  disponible para cubrir tus costos fijos.
+                </p>
+
+              </article>
+
+
+              <article>
+
+                <span class="nk-badge nk-badge-gray">
+                  03
+                </span>
+
+                <h3>
+                  Más allá del equilibrio
+                </h3>
+
+                <p class="nk-subtitle">
+                  Después de alcanzar el equilibrio,
+                  cada venta adicional puede contribuir
+                  a generar utilidad.
+                </p>
+
+              </article>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="nk-section">
+
+      <div class="nk-container">
+
+        <div
+          class="nk-card"
+          style="
+            padding: 44px;
+            background:
+              linear-gradient(
+                135deg,
+                var(--nk-charcoal),
+                #303b48
+              );
+            color: white;
+            text-align: center;
+          "
+        >
+
+          <div class="nk-eyebrow">
+            NegocioKit Pro
+          </div>
+
+          <h2
+            style="
+              margin: 0;
+              font-size: clamp(1.9rem, 4vw, 2.7rem);
+              letter-spacing: -0.03em;
+            "
+          >
+            Convierte números en decisiones.
+          </h2>
+
+          <p
+            style="
+              max-width: 680px;
+              margin: 16px auto 0;
+              color: #d7dde3;
+            "
+          >
+            Próximamente podrás guardar tus escenarios,
+            comparar meses y construir una vista completa
+            de la rentabilidad de tu negocio.
+          </p>
+
+          <div
+            style="margin-top: 24px;"
+          >
+
+            <a
+              href="tools.html"
+              class="nk-btn nk-btn-primary"
+            >
+              Ver todas las herramientas
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer class="nk-footer">
+
+    <div class="nk-container">
+
+      <div class="nk-footer-grid">
+
+
+        <div>
+
+          <div class="nk-brand">
+
+            <img
+              src="assets/images/logo.png"
+              alt=""
+              width="42"
+              height="42"
+            >
+
+            <div class="nk-brand-name">
+              Negocio<span>Kit</span>
+            </div>
+
+          </div>
+
+          <p>
+            Recursos digitales para restaurantes,
+            cafeterías y pequeños negocios.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            Producto
+          </strong>
+
+          <p>
+            <a href="tools.html">
+              Herramientas
+            </a>
+          </p>
+
+          <p>
+            <a href="index.html#recursos">
+              Recursos
+            </a>
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            NegocioKit
+          </strong>
+
+          <p>
+            <a href="index.html#precios">
+              Precios
+            </a>
+          </p>
+
+          <p>
+            <a href="#">
+              Contacto
+            </a>
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            Legal
+          </strong>
+
+          <p>
+            <a href="#">
+              Privacidad
+            </a>
+          </p>
+
+          <p>
+            <a href="#">
+              Términos
+            </a>
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div
+        style="
+          margin-top: 34px;
+          padding-top: 20px;
+          border-top: 1px solid rgba(255,255,255,0.12);
+          color: #9fa8b1;
+          font-size: 0.82rem;
+        "
+      >
+        © 2026 NegocioKit. Todos los derechos reservados.
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       CALCULATOR LOGIC
+       ===================================================== -->
+
+  <script>
+
+    (function () {
+
+      "use strict";
+
+
+      const form =
+        document.getElementById(
+          "breakEvenCalculator"
+        );
+
+
+      const fixedCostsInput =
+        document.getElementById(
+          "fixedCosts"
+        );
+
+
+      const averageSaleInput =
+        document.getElementById(
+          "averageSale"
+        );
+
+
+      const variableCostInput =
+        document.getElementById(
+          "variableCost"
+        );
+
+
+      const targetUnitsInput =
+        document.getElementById(
+          "targetUnits"
+        );
+
+
+      const errorBox =
+        document.getElementById(
+          "calculatorError"
+        );
+
+
+      const breakEvenUnitsOutput =
+        document.getElementById(
+          "breakEvenUnits"
+        );
+
+
+      const breakEvenRevenueOutput =
+        document.getElementById(
+          "breakEvenRevenue"
+        );
+
+
+      const contributionMarginOutput =
+        document.getElementById(
+          "contributionMargin"
+        );
+
+
+      const targetProfitOutput =
+        document.getElementById(
+          "targetProfit"
+        );
+
+
+      const projectedProfitOutput =
+        document.getElementById(
+          "projectedProfit"
+        );
+
+
+      function money(value) {
+
+        return new Intl.NumberFormat(
+          "en-US",
+          {
+            style: "currency",
+            currency: "USD",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          }
+        ).format(value);
+
+      }
+
+
+      function number(value) {
+
+        return new Intl.NumberFormat(
+          "en-US",
+          {
+            maximumFractionDigits: 0
+          }
+        ).format(value);
+
+      }
+
+
+      function showError(message) {
+
+        errorBox.textContent =
+          message;
+
+        errorBox.style.display =
+          "block";
+
+      }
+
+
+      function clearError() {
+
+        errorBox.textContent =
+          "";
+
+        errorBox.style.display =
+          "none";
+
+      }
+
+
+      form.addEventListener(
+        "submit",
+        function (event) {
+
+          event.preventDefault();
+
+          clearError();
+
+
+          const fixedCosts =
+            Number.parseFloat(
+              fixedCostsInput.value
+            );
+
+
+          const averageSale =
+            Number.parseFloat(
+              averageSaleInput.value
+            );
+
+
+          const variableCost =
+            Number.parseFloat(
+              variableCostInput.value
+            );
+
+
+          const targetUnitsValue =
+            Number.parseFloat(
+              targetUnitsInput.value
+            );
+
+
+          if (
+            !Number.isFinite(fixedCosts) ||
+            fixedCosts < 0
+          ) {
+
+            showError(
+              "Ingresa costos fijos válidos."
+            );
+
+            fixedCostsInput.focus();
+
+            return;
+
+          }
+
+
+          if (
+            !Number.isFinite(averageSale) ||
+            averageSale <= 0
+          ) {
+
+            showError(
+              "La venta promedio debe ser mayor que 0."
+            );
+
+            averageSaleInput.focus();
+
+            return;
+
+          }
+
+
+          if (
+            !Number.isFinite(variableCost) ||
+            variableCost < 0
+          ) {
+
+            showError(
+              "Ingresa un costo variable válido."
+            );
+
+            variableCostInput.focus();
+
+            return;
+
+          }
+
+
+          if (variableCost >= averageSale) {
+
+            showError(
+              "El costo variable debe ser menor que la venta promedio."
+            );
+
+            variableCostInput.focus();
+
+            return;
+
+          }
+
+
+          /*
+           * Contribution margin per order
+           */
+
+          const contributionPerOrder =
+            averageSale - variableCost;
+
+
+          /*
+           * Contribution margin percentage
+           */
+
+          const contributionMargin =
+            (
+              contributionPerOrder /
+              averageSale
+            ) * 100;
+
+
+          /*
+           * Break-even units
+           */
+
+          const breakEvenUnits =
+            Math.ceil(
+              fixedCosts /
+              contributionPerOrder
+            );
+
+
+          /*
+           * Break-even revenue
+           */
+
+          const breakEvenRevenue =
+            breakEvenUnits *
+            averageSale;
+
+
+          /*
+           * Optional projected result
+           */
+
+          let projectedProfit = 0;
+
+          let targetProfit = 0;
+
+
+          if (
+            Number.isFinite(targetUnitsValue) &&
+            targetUnitsValue > 0
+          ) {
+
+            projectedProfit =
+              (
+                targetUnitsValue *
+                contributionPerOrder
+              ) -
+              fixedCosts;
+
+
+            targetProfit =
+              projectedProfit;
+
+          }
+
+
+          /*
+           * Render results
+           *
+           * textContent is intentionally used instead
+           * of innerHTML for user-controlled values.
+           */
+
+          breakEvenUnitsOutput.textContent =
+            number(
+              breakEvenUnits
+            );
+
+
+          breakEvenRevenueOutput.textContent =
+            money(
+              breakEvenRevenue
+            );
+
+
+          contributionMarginOutput.textContent =
+            contributionMargin.toFixed(1) +
+            "%";
+
+
+          targetProfitOutput.textContent =
+            money(
+              targetProfit
+            );
+
+
+          projectedProfitOutput.textContent =
+            money(
+              projectedProfit
+            );
+
+        }
+      );
+
+    })();
+
+  </script>
+
+</body>
+
+</html>
