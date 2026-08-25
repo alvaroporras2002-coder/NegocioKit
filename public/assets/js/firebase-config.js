@@ -1,15 +1,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+
 import {
   getAuth
 } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
-/*
- * NegocioKit Firebase configuration.
- *
- * These client-side values identify the Firebase project.
- * Security is enforced through Firebase Authentication,
- * Firestore/Storage Rules, App Check and backend validation.
- */
+import {
+  getFirestore
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDoWNB2V-egvAU0e13BCUZC94swqiYC14",
@@ -20,11 +18,16 @@ const firebaseConfig = {
   appId: "1:287514539365:web:fc97a202b6aa5430b85d8c"
 };
 
+
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
+const db = getFirestore(app);
+
+
 export {
   app,
-  auth
+  auth,
+  db
 };
