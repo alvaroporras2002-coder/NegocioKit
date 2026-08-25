@@ -19,9 +19,7 @@
     content="#f47721"
   >
 
-  <title>
-    Herramientas | NegocioKit
-  </title>
+  <title>Herramientas | NegocioKit</title>
 
   <link
     rel="stylesheet"
@@ -31,7 +29,9 @@
 
 <body>
 
-  <!-- HEADER -->
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
 
   <header class="nk-header">
 
@@ -40,12 +40,12 @@
       <a
         href="index.html"
         class="nk-brand"
-        aria-label="NegocioKit"
+        aria-label="NegocioKit - Inicio"
       >
 
         <img
           src="assets/images/logo.png"
-          alt="NegocioKit"
+          alt="Logo de NegocioKit"
           width="42"
           height="42"
         >
@@ -55,6 +55,7 @@
         </div>
 
       </a>
+
 
       <nav
         class="nk-nav"
@@ -92,6 +93,7 @@
 
       </nav>
 
+
       <a
         href="index.html#precios"
         class="nk-btn nk-btn-primary"
@@ -104,21 +106,21 @@
   </header>
 
 
-  <!-- MAIN -->
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
 
   <main>
 
-    <!-- HERO -->
+    <!-- ===================================================
+         HERO
+         =================================================== -->
 
     <section class="nk-hero">
 
-      <div class="nk-container">
+      <div class="nk-container nk-hero-grid">
 
-        <div
-          style="
-            max-width: 760px;
-          "
-        >
+        <div class="nk-hero-content">
 
           <div class="nk-eyebrow">
             Herramientas NegocioKit
@@ -130,8 +132,75 @@
 
           <p class="nk-subtitle">
             Calcula precios, márgenes y rentabilidad en segundos.
-            Después podrás guardar tus resultados dentro de tu cuenta.
+            Diseñadas especialmente para restaurantes, cafeterías
+            y pequeños negocios.
           </p>
+
+
+          <div class="nk-hero-actions">
+
+            <a
+              href="#herramientas"
+              class="nk-btn nk-btn-primary"
+            >
+              Explorar herramientas
+            </a>
+
+            <a
+              href="index.html#precios"
+              class="nk-btn nk-btn-secondary"
+            >
+              Ver planes
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="nk-hero-visual">
+
+          <div class="nk-hero-logo-card">
+
+            <img
+              src="assets/images/logo.png"
+              alt="NegocioKit"
+            >
+
+            <div
+              style="
+                text-align: center;
+                margin-top: 20px;
+              "
+            >
+
+              <span class="nk-badge nk-badge-orange">
+                Business Toolkit
+              </span>
+
+              <h2
+                style="
+                  margin: 14px 0 8px;
+                  font-size: 1.45rem;
+                "
+              >
+                Trabaja más inteligente.
+              </h2>
+
+              <p
+                class="nk-subtitle"
+                style="
+                  margin-inline: auto;
+                  font-size: 0.92rem;
+                "
+              >
+                Herramientas sencillas para
+                decisiones reales de negocio.
+              </p>
+
+            </div>
+
+          </div>
 
         </div>
 
@@ -140,11 +209,19 @@
     </section>
 
 
-    <!-- TOOLS -->
+    <!-- ===================================================
+         TOOLS
+         =================================================== -->
 
-    <section class="nk-section">
+    <section
+      class="nk-section"
+      id="herramientas"
+    >
 
       <div class="nk-container">
+
+
+        <!-- SECTION HEADER -->
 
         <div
           style="
@@ -152,7 +229,7 @@
             align-items: flex-end;
             justify-content: space-between;
             gap: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
             flex-wrap: wrap;
           "
         >
@@ -166,25 +243,41 @@
             <h2
               style="
                 margin: 0;
-                font-size: 2rem;
+                font-size: clamp(1.8rem, 3vw, 2.4rem);
+                letter-spacing: -0.03em;
               "
             >
-              Empieza con una herramienta
+              Elige una herramienta
             </h2>
+
+            <p
+              class="nk-subtitle"
+              style="margin-top: 10px;"
+            >
+              Empieza gratis y desbloquea herramientas
+              avanzadas con NegocioKit Pro.
+            </p>
 
           </div>
 
+
           <span class="nk-badge nk-badge-green">
-            4 herramientas disponibles
+            2 disponibles · más próximamente
           </span>
 
         </div>
 
 
+        <!-- =================================================
+             TOOL GRID
+             ================================================= -->
+
         <div class="nk-grid nk-grid-2">
 
 
-          <!-- TOOL 1 -->
+          <!-- ===============================================
+               PRICE CALCULATOR
+               =============================================== -->
 
           <article class="nk-card nk-card-hover">
 
@@ -194,45 +287,89 @@
                 $
               </div>
 
-              <span class="nk-badge nk-badge-orange">
-                Gratis
-              </span>
-
-              <h3>
-                Calculadora de precio de venta
-              </h3>
-
-              <p class="nk-subtitle">
-                Calcula cuánto deberías cobrar considerando
-                el costo del producto y el margen deseado.
-              </p>
 
               <div
                 style="
                   display: flex;
                   justify-content: space-between;
-                  gap: 10px;
                   align-items: center;
-                  margin-top: 22px;
+                  gap: 12px;
                   flex-wrap: wrap;
                 "
               >
 
-                <span
-                  style="
-                    color: var(--nk-text-muted);
-                    font-size: 0.82rem;
-                  "
-                >
-                  Tiempo estimado: 1 min
+                <span class="nk-badge nk-badge-orange">
+                  Gratis
                 </span>
 
-               <a
-  href="calculator-price.html"
-  class="nk-btn nk-btn-primary"
->
-  Abrir herramienta
-</a>
+                <span
+                  style="
+                    color: var(--nk-text-soft);
+                    font-size: 0.76rem;
+                    font-weight: 700;
+                  "
+                >
+                  1 MIN
+                </span>
+
+              </div>
+
+
+              <h3
+                style="
+                  margin-top: 16px;
+                  margin-bottom: 8px;
+                "
+              >
+                Calculadora de Precio de Venta
+              </h3>
+
+
+              <p class="nk-subtitle">
+                Calcula cuánto deberías cobrar utilizando
+                tu costo y el margen de ganancia que deseas.
+              </p>
+
+
+              <div
+                style="
+                  margin-top: 22px;
+                  padding-top: 18px;
+                  border-top: 1px solid var(--nk-border);
+                "
+              >
+
+                <div
+                  style="
+                    display: flex;
+                    gap: 10px;
+                    flex-wrap: wrap;
+                    margin-bottom: 16px;
+                  "
+                >
+
+                  <span class="nk-badge nk-badge-gray">
+                    Costo
+                  </span>
+
+                  <span class="nk-badge nk-badge-gray">
+                    Margen
+                  </span>
+
+                  <span class="nk-badge nk-badge-gray">
+                    Comisión
+                  </span>
+
+                </div>
+
+
+                <a
+                  href="calculator-price.html"
+                  class="nk-btn nk-btn-primary"
+                  style="width: 100%;"
+                >
+                  Abrir calculadora
+                </a>
 
               </div>
 
@@ -241,7 +378,9 @@
           </article>
 
 
-          <!-- TOOL 2 -->
+          <!-- ===============================================
+               MARGIN CALCULATOR
+               =============================================== -->
 
           <article class="nk-card nk-card-hover">
 
@@ -251,46 +390,89 @@
                 %
               </div>
 
-              <span class="nk-badge nk-badge-orange">
-                Gratis
-              </span>
-
-              <h3>
-                Calculadora de margen
-              </h3>
-
-              <p class="nk-subtitle">
-                Descubre cuánto ganas realmente por cada
-                producto después de considerar tus costos.
-              </p>
 
               <div
                 style="
                   display: flex;
                   justify-content: space-between;
-                  gap: 10px;
                   align-items: center;
-                  margin-top: 22px;
+                  gap: 12px;
                   flex-wrap: wrap;
                 "
               >
 
-                <span
-                  style="
-                    color: var(--nk-text-muted);
-                    font-size: 0.82rem;
-                  "
-                >
-                  Tiempo estimado: 1 min
+                <span class="nk-badge nk-badge-orange">
+                  Gratis
                 </span>
 
-                <button
-                  type="button"
-                  class="nk-btn nk-btn-primary"
-                  data-tool="margin"
+                <span
+                  style="
+                    color: var(--nk-text-soft);
+                    font-size: 0.76rem;
+                    font-weight: 700;
+                  "
                 >
-                  Abrir herramienta
-                </button>
+                  1 MIN
+                </span>
+
+              </div>
+
+
+              <h3
+                style="
+                  margin-top: 16px;
+                  margin-bottom: 8px;
+                "
+              >
+                Calculadora de Margen
+              </h3>
+
+
+              <p class="nk-subtitle">
+                Conoce tu margen bruto, utilidad y markup
+                a partir del costo y precio de venta.
+              </p>
+
+
+              <div
+                style="
+                  margin-top: 22px;
+                  padding-top: 18px;
+                  border-top: 1px solid var(--nk-border);
+                "
+              >
+
+                <div
+                  style="
+                    display: flex;
+                    gap: 10px;
+                    flex-wrap: wrap;
+                    margin-bottom: 16px;
+                  "
+                >
+
+                  <span class="nk-badge nk-badge-gray">
+                    Margen
+                  </span>
+
+                  <span class="nk-badge nk-badge-gray">
+                    Markup
+                  </span>
+
+                  <span class="nk-badge nk-badge-gray">
+                    Ganancia
+                  </span>
+
+                </div>
+
+
+                <a
+                  href="calculator-margin.html"
+                  class="nk-btn nk-btn-primary"
+                  style="width: 100%;"
+                >
+                  Abrir calculadora
+                </a>
 
               </div>
 
@@ -299,55 +481,89 @@
           </article>
 
 
-          <!-- TOOL 3 -->
+          <!-- ===============================================
+               BREAK EVEN - COMING SOON
+               =============================================== -->
 
-          <article class="nk-card nk-card-hover">
+          <article class="nk-card">
 
             <div class="nk-card-body">
 
-              <div class="nk-feature-icon">
+              <div
+                class="nk-feature-icon"
+                style="
+                  background: #eef1f4;
+                  color: var(--nk-charcoal-2);
+                "
+              >
                 ≈
               </div>
 
+
               <span class="nk-badge nk-badge-gray">
-                Pro
+                Próximamente
               </span>
 
-              <h3>
-                Punto de equilibrio
+
+              <h3
+                style="
+                  margin-top: 16px;
+                  margin-bottom: 8px;
+                "
+              >
+                Calculadora de Punto de Equilibrio
               </h3>
 
+
               <p class="nk-subtitle">
-                Calcula cuánto necesitas vender para cubrir
-                tus costos antes de comenzar a generar utilidad.
+                Descubre cuánto necesitas vender para
+                cubrir tus costos y llegar al punto de equilibrio.
               </p>
+
 
               <div
                 style="
-                  display: flex;
-                  justify-content: space-between;
-                  gap: 10px;
-                  align-items: center;
                   margin-top: 22px;
-                  flex-wrap: wrap;
+                  padding-top: 18px;
+                  border-top: 1px solid var(--nk-border);
                 "
               >
 
-                <span
+                <div
                   style="
-                    color: var(--nk-text-muted);
-                    font-size: 0.82rem;
+                    display: flex;
+                    gap: 10px;
+                    flex-wrap: wrap;
+                    margin-bottom: 16px;
                   "
                 >
-                  Incluido en Pro
-                </span>
+
+                  <span class="nk-badge nk-badge-gray">
+                    Costos fijos
+                  </span>
+
+                  <span class="nk-badge nk-badge-gray">
+                    Costos variables
+                  </span>
+
+                  <span class="nk-badge nk-badge-gray">
+                    Ventas
+                  </span>
+
+                </div>
+
 
                 <button
                   type="button"
                   class="nk-btn nk-btn-secondary"
-                  data-tool="break-even"
+                  disabled
+                  style="
+                    width: 100%;
+                    cursor: not-allowed;
+                    opacity: 0.7;
+                  "
                 >
-                  Ver herramienta
+                  Próximamente
                 </button>
 
               </div>
@@ -357,56 +573,85 @@
           </article>
 
 
-          <!-- TOOL 4 -->
+          <!-- ===============================================
+               GROWTH SIMULATOR - COMING SOON
+               =============================================== -->
 
-          <article class="nk-card nk-card-hover">
+          <article class="nk-card">
 
             <div class="nk-card-body">
 
-              <div class="nk-feature-icon">
+              <div
+                class="nk-feature-icon"
+                style="
+                  background: #eef1f4;
+                  color: var(--nk-charcoal-2);
+                "
+              >
                 ↗
               </div>
+
 
               <span class="nk-badge nk-badge-gray">
                 Pro
               </span>
 
-              <h3>
-                Simulador de crecimiento
+
+              <h3
+                style="
+                  margin-top: 16px;
+                  margin-bottom: 8px;
+                "
+              >
+                Simulador de Crecimiento
               </h3>
 
+
               <p class="nk-subtitle">
-                Simula ventas, crecimiento mensual y posibles
-                escenarios para planificar tus próximos pasos.
+                Compara distintos escenarios de ventas,
+                crecimiento mensual y objetivos futuros.
               </p>
+
 
               <div
                 style="
-                  display: flex;
-                  justify-content: space-between;
-                  gap: 10px;
-                  align-items: center;
                   margin-top: 22px;
-                  flex-wrap: wrap;
+                  padding-top: 18px;
+                  border-top: 1px solid var(--nk-border);
                 "
               >
 
-                <span
+                <div
                   style="
-                    color: var(--nk-text-muted);
-                    font-size: 0.82rem;
+                    display: flex;
+                    gap: 10px;
+                    flex-wrap: wrap;
+                    margin-bottom: 16px;
                   "
                 >
-                  Incluido en Pro
-                </span>
 
-                <button
-                  type="button"
+                  <span class="nk-badge nk-badge-gray">
+                    Escenarios
+                  </span>
+
+                  <span class="nk-badge nk-badge-gray">
+                    Proyecciones
+                  </span>
+
+                  <span class="nk-badge nk-badge-gray">
+                    Pro
+                  </span>
+
+                </div>
+
+
+                <a
+                  href="index.html#precios"
                   class="nk-btn nk-btn-secondary"
-                  data-tool="growth"
+                  style="width: 100%;"
                 >
-                  Ver herramienta
-                </button>
+                  Conocer Pro
+                </a>
 
               </div>
 
@@ -421,7 +666,124 @@
     </section>
 
 
-    <!-- CTA -->
+    <!-- ===================================================
+         WHY NEGOCIOKIT
+         =================================================== -->
+
+    <section
+      class="nk-section"
+      style="background: #ffffff;"
+    >
+
+      <div class="nk-container">
+
+
+        <div
+          style="
+            max-width: 720px;
+            margin-bottom: 34px;
+          "
+        >
+
+          <div class="nk-eyebrow">
+            Diseñado para negocios reales
+          </div>
+
+          <h2
+            class="nk-title"
+            style="font-size: clamp(1.9rem, 3vw, 2.7rem);"
+          >
+            Menos fórmulas. Más claridad.
+          </h2>
+
+          <p class="nk-subtitle">
+            NegocioKit convierte cálculos que normalmente
+            requieren hojas de cálculo complejas en herramientas
+            simples que cualquier dueño de negocio puede usar.
+          </p>
+
+        </div>
+
+
+        <div class="nk-grid nk-grid-3">
+
+
+          <article class="nk-card">
+
+            <div class="nk-card-body">
+
+              <div class="nk-feature-icon">
+                ✓
+              </div>
+
+              <h3>
+                Rápido
+              </h3>
+
+              <p class="nk-subtitle">
+                Obtén resultados en segundos sin construir
+                tus propias fórmulas.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="nk-card">
+
+            <div class="nk-card-body">
+
+              <div class="nk-feature-icon">
+                ◆
+              </div>
+
+              <h3>
+                Pensado para restaurantes
+              </h3>
+
+              <p class="nk-subtitle">
+                Las herramientas están diseñadas teniendo
+                en cuenta costos, precios y márgenes reales.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="nk-card">
+
+            <div class="nk-card-body">
+
+              <div class="nk-feature-icon">
+                +
+              </div>
+
+              <h3>
+                Cada vez más útil
+              </h3>
+
+              <p class="nk-subtitle">
+                La biblioteca crecerá con herramientas,
+                plantillas y recursos adicionales.
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CTA
+         =================================================== -->
 
     <section class="nk-section">
 
@@ -430,7 +792,7 @@
         <div
           class="nk-card"
           style="
-            padding: 40px;
+            padding: 44px;
             background:
               linear-gradient(
                 135deg,
@@ -443,37 +805,62 @@
         >
 
           <div class="nk-eyebrow">
-            Más herramientas próximamente
+            NegocioKit Pro
           </div>
 
           <h2
             style="
               margin: 0;
-              font-size: 2rem;
+              font-size: clamp(1.9rem, 4vw, 2.7rem);
+              letter-spacing: -0.03em;
             "
           >
-            Convierte tus números en decisiones.
+            Más herramientas. Más control.
           </h2>
 
           <p
             style="
-              max-width: 650px;
-              margin: 14px auto 0;
+              max-width: 680px;
+              margin: 16px auto 0;
               color: #d7dde3;
             "
           >
-            NegocioKit irá ampliando esta biblioteca con
-            herramientas para marketing, inventario, finanzas
-            y operaciones.
+            Guarda tus productos, analiza escenarios,
+            desbloquea nuevas herramientas y construye
+            un sistema de trabajo alrededor de tu negocio.
           </p>
 
-          <a
-            href="index.html#precios"
-            class="nk-btn nk-btn-primary"
-            style="margin-top: 22px;"
+
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              gap: 12px;
+              flex-wrap: wrap;
+              margin-top: 24px;
+            "
           >
-            Ver NegocioKit Pro
-          </a>
+
+            <a
+              href="index.html#precios"
+              class="nk-btn nk-btn-primary"
+            >
+              Ver NegocioKit Pro
+            </a>
+
+            <a
+              href="index.html"
+              class="nk-btn"
+              style="
+                background: rgba(255,255,255,0.08);
+                border: 1px solid rgba(255,255,255,0.18);
+                color: white;
+              "
+            >
+              Volver al inicio
+            </a>
+
+          </div>
 
         </div>
 
@@ -484,13 +871,18 @@
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
 
   <footer class="nk-footer">
 
     <div class="nk-container">
 
       <div class="nk-footer-grid">
+
+
+        <!-- BRAND -->
 
         <div>
 
@@ -510,10 +902,14 @@
           </div>
 
           <p>
-            Recursos digitales para pequeños negocios.
+            Recursos digitales para restaurantes,
+            cafeterías y pequeños negocios.
           </p>
 
         </div>
+
+
+        <!-- PRODUCT -->
 
         <div>
 
@@ -533,12 +929,21 @@
             </a>
           </p>
 
+          <p>
+            <a href="index.html#precios">
+              Precios
+            </a>
+          </p>
+
         </div>
+
+
+        <!-- COMPANY -->
 
         <div>
 
           <strong>
-            Empresa
+            NegocioKit
           </strong>
 
           <p>
@@ -554,6 +959,9 @@
           </p>
 
         </div>
+
+
+        <!-- LEGAL -->
 
         <div>
 
@@ -577,6 +985,7 @@
 
       </div>
 
+
       <div
         style="
           margin-top: 34px;
@@ -593,7 +1002,6 @@
 
   </footer>
 
-
-
 </body>
+
 </html>
