@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Inicia sesión o crea tu cuenta de NegocioKit."
+  >
+
+  <meta
+    name="theme-color"
+    content="#f47721"
+  >
+
+  <title>
+    Iniciar sesión | NegocioKit
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="assets/css/styles.css"
+  >
+
+  <style>
+
+    .nk-auth-page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--nk-bg);
+    }
+
+    .nk-auth-brand-panel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(244, 119, 33, 0.25),
+          transparent 32%
+        ),
+        linear-gradient(
+          145deg,
+          var(--nk-charcoal),
+          #313b47
+        );
+
+      color: var(--nk-white);
+    }
+
+    .nk-auth-brand-panel::after {
+      content: "";
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      right: -180px;
+      bottom: -180px;
+
+      border-radius: 50%;
+
+      border:
+        60px solid
+        rgba(244, 119, 33, 0.08);
+    }
+
+    .nk-auth-brand-content {
+      position: relative;
+      z-index: 2;
+
+      width: min(100%, 560px);
+    }
+
+    .nk-auth-logo {
+      width: 92px;
+      height: 92px;
+
+      object-fit: contain;
+
+      margin-bottom: 28px;
+    }
+
+    .nk-auth-brand-title {
+      margin: 0;
+
+      font-size:
+        clamp(2.2rem, 5vw, 4.2rem);
+
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    .nk-auth-brand-title span {
+      color: #ff9b58;
+    }
+
+    .nk-auth-brand-copy {
+      margin-top: 20px;
+
+      max-width: 520px;
+
+      color: #d9dee3;
+
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .nk-auth-points {
+      display: grid;
+      gap: 12px;
+
+      margin-top: 34px;
+    }
+
+    .nk-auth-point {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      color: #e7ebee;
+
+      font-size: 0.92rem;
+      font-weight: 650;
+    }
+
+    .nk-auth-point-icon {
+      width: 30px;
+      height: 30px;
+
+      display: grid;
+      place-items: center;
+
+      flex: 0 0 auto;
+
+      border-radius: 10px;
+
+      background:
+        rgba(244, 119, 33, 0.16);
+
+      color: #ff9b58;
+    }
+
+    .nk-auth-form-panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 32px;
+    }
+
+    .nk-auth-container {
+      width: min(100%, 460px);
+    }
+
+    .nk-auth-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 12px;
+
+      margin-bottom: 28px;
+    }
+
+    .nk-auth-home {
+      color: var(--nk-text-muted);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .nk-auth-home:hover {
+      color: var(--nk-orange);
+    }
+
+    .nk-language-selector {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+
+      padding: 4px;
+
+      background: var(--nk-white);
+
+      border:
+        1px solid var(--nk-border);
+
+      border-radius: 10px;
+    }
+
+    .nk-language-button {
+      min-width: 38px;
+      min-height: 30px;
+
+      padding: 0 8px;
+
+      border: 0;
+      border-radius: 7px;
+
+      background: transparent;
+
+      color: var(--nk-text-muted);
+
+      font-size: 0.72rem;
+      font-weight: 800;
+
+      cursor: pointer;
+    }
+
+    .nk-language-button.active {
+      background: var(--nk-orange-light);
+      color: var(--nk-orange-dark);
+    }
+
+    .nk-auth-heading {
+      margin-bottom: 26px;
+    }
+
+    .nk-auth-heading h1 {
+      margin: 0;
+
+      font-size: 2rem;
+      line-height: 1.1;
+
+      letter-spacing: -0.03em;
+    }
+
+    .nk-auth-heading p {
+      margin-top: 10px;
+
+      color: var(--nk-text-muted);
+    }
+
+    .nk-auth-mode-switch {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      margin-bottom: 24px;
+
+      padding: 4px;
+
+      background: #eef1f4;
+
+      border-radius: 12px;
+    }
+
+    .nk-auth-mode-button {
+      min-height: 40px;
+
+      border: 0;
+      border-radius: 9px;
+
+      background: transparent;
+
+      color: var(--nk-text-muted);
+
+      font-size: 0.85rem;
+      font-weight: 750;
+
+      cursor: pointer;
+    }
+
+    .nk-auth-mode-button.active {
+      background: var(--nk-white);
+
+      color: var(--nk-charcoal);
+
+      box-shadow: var(--nk-shadow-sm);
+    }
+
+    .nk-auth-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .nk-password-wrapper {
+      position: relative;
+    }
+
+    .nk-password-wrapper .nk-input {
+      padding-right: 86px;
+    }
+
+    .nk-password-toggle {
+      position: absolute;
+
+      right: 8px;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      min-height: 34px;
+
+      padding: 0 10px;
+
+      border: 0;
+      border-radius: 8px;
+
+      background: #f2f4f6;
+
+      color: var(--nk-text-muted);
+
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .nk-auth-forgot {
+      display: flex;
+      justify-content: flex-end;
+
+      margin-top: -6px;
+    }
+
+    .nk-auth-link {
+      color: var(--nk-orange-dark);
+
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .nk-auth-link:hover {
+      text-decoration: underline;
+    }
+
+    .nk-auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      margin: 22px 0;
+
+      color: var(--nk-text-soft);
+
+      font-size: 0.75rem;
+      font-weight: 700;
+
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .nk-auth-divider::before,
+    .nk-auth-divider::after {
+      content: "";
+
+      flex: 1;
+
+      height: 1px;
+
+      background: var(--nk-border);
+    }
+
+    .nk-google-button {
+      width: 100%;
+    }
+
+    .nk-google-icon {
+      width: 22px;
+      height: 22px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 6px;
+
+      background: #fff;
+
+      color: var(--nk-charcoal);
+
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .nk-auth-message {
+      display: none;
+
+      padding: 12px 14px;
+
+      border-radius: var(--nk-radius-md);
+
+      font-size: 0.84rem;
+      font-weight: 650;
+      line-height: 1.5;
+    }
+
+    .nk-auth-message.error {
+      display: block;
+
+      background: var(--nk-danger-light);
+      color: var(--nk-danger);
+    }
+
+    .nk-auth-message.success {
+      display: block;
+
+      background: var(--nk-green-light);
+      color: var(--nk-green);
+    }
+
+    .nk-auth-terms {
+      margin-top: 18px;
+
+      color: var(--nk-text-soft);
+
+      font-size: 0.73rem;
+      line-height: 1.55;
+
+      text-align: center;
+    }
+
+    .nk-auth-terms a {
+      color: var(--nk-text-muted);
+      text-decoration: underline;
+    }
+
+    .nk-register-extra {
+      display: none;
+    }
+
+    .nk-register-extra.visible {
+      display: grid;
+      gap: 18px;
+    }
+
+    .nk-auth-footer-link {
+      margin-top: 24px;
+
+      text-align: center;
+
+      color: var(--nk-text-muted);
+
+      font-size: 0.84rem;
+    }
+
+    @media (max-width: 900px) {
+
+      .nk-auth-page {
+        grid-template-columns: 1fr;
+      }
+
+      .nk-auth-brand-panel {
+        min-height: 330px;
+        padding: 42px 28px;
+      }
+
+      .nk-auth-brand-content {
+        width: min(100%, 700px);
+      }
+
+      .nk-auth-brand-title {
+        font-size: 2.7rem;
+      }
+
+      .nk-auth-brand-copy {
+        font-size: 0.94rem;
+      }
+
+      .nk-auth-points {
+        display: none;
+      }
+
+    }
+
+    @media (max-width: 560px) {
+
+      .nk-auth-form-panel {
+        padding: 22px 16px 40px;
+      }
+
+      .nk-auth-brand-panel {
+        min-height: 260px;
+        padding: 32px 20px;
+      }
+
+      .nk-auth-logo {
+        width: 68px;
+        height: 68px;
+        margin-bottom: 18px;
+      }
+
+      .nk-auth-brand-title {
+        font-size: 2.2rem;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <main class="nk-auth-page">
+
+
+    <!-- ===================================================
+         LEFT BRAND PANEL
+         =================================================== -->
+
+    <section class="nk-auth-brand-panel">
+
+      <div class="nk-auth-brand-content">
+
+        <img
+          src="assets/images/logo.png"
+          alt="NegocioKit"
+          class="nk-auth-logo"
+        >
+
+        <div class="nk-eyebrow">
+          NegocioKit
+        </div>
+
+        <h1 class="nk-auth-brand-title">
+          Tu negocio.
+          <span>Tus herramientas.</span>
+        </h1>
+
+        <p class="nk-auth-brand-copy">
+          Guarda tus herramientas, productos y resultados
+          en un solo lugar. Diseñado especialmente para
+          restaurantes, cafeterías y pequeños negocios.
+        </p>
+
+
+        <div class="nk-auth-points">
+
+          <div class="nk-auth-point">
+
+            <div class="nk-auth-point-icon">
+              ✓
+            </div>
+
+            <span>
+              Herramientas para costos y rentabilidad
+            </span>
+
+          </div>
+
+
+          <div class="nk-auth-point">
+
+            <div class="nk-auth-point-icon">
+              ✓
+            </div>
+
+            <span>
+              Plantillas listas para usar
+            </span>
+
+          </div>
+
+
+          <div class="nk-auth-point">
+
+            <div class="nk-auth-point-icon">
+              ✓
+            </div>
+
+            <span>
+              Todo tu trabajo organizado
+            </span>
+
+          </div>
+
+
+          <div class="nk-auth-point">
+
+            <div class="nk-auth-point-icon">
+              ✓
+            </div>
+
+            <span>
+              Nuevas herramientas periódicamente
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         RIGHT FORM PANEL
+         =================================================== -->
+
+    <section class="nk-auth-form-panel">
+
+      <div class="nk-auth-container">
+
+
+        <!-- TOP BAR -->
+
+        <div class="nk-auth-topbar">
+
+          <a
+            href="index.html"
+            class="nk-auth-home"
+          >
+            ← Volver a NegocioKit
+          </a>
+
+
+          <div
+            class="nk-language-selector"
+            aria-label="Selector de idioma"
+          >
+
+            <button
+              type="button"
+              class="nk-language-button active"
+              data-language="es"
+              aria-pressed="true"
+            >
+              ES
+            </button>
+
+            <button
+              type="button"
+              class="nk-language-button"
+              data-language="en"
+              aria-pressed="false"
+            >
+              EN
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- HEADING -->
+
+        <div class="nk-auth-heading">
+
+          <div
+            class="nk-eyebrow"
+            id="authEyebrow"
+          >
+            Tu cuenta
+          </div>
+
+          <h1 id="authTitle">
+            Bienvenido de nuevo
+          </h1>
+
+          <p id="authSubtitle">
+            Inicia sesión para acceder a tu espacio de NegocioKit.
+          </p>
+
+        </div>
+
+
+        <!-- LOGIN / REGISTER SWITCH -->
+
+        <div
+          class="nk-auth-mode-switch"
+          role="tablist"
+          aria-label="Autenticación"
+        >
+
+          <button
+            type="button"
+            class="nk-auth-mode-button active"
+            id="loginTab"
+            role="tab"
+            aria-selected="true"
+          >
+            Iniciar sesión
+          </button>
+
+          <button
+            type="button"
+            class="nk-auth-mode-button"
+            id="registerTab"
+            role="tab"
+            aria-selected="false"
+          >
+            Crear cuenta
+          </button>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div
+          id="authMessage"
+          class="nk-auth-message"
+          role="alert"
+          aria-live="polite"
+        >
+        </div>
+
+
+        <!-- AUTH FORM -->
+
+        <form
+          id="authForm"
+          class="nk-auth-form"
+          novalidate
+        >
+
+
+          <!-- REGISTER EXTRA FIELDS -->
+
+          <div
+            id="registerExtra"
+            class="nk-register-extra"
+          >
+
+            <div class="nk-field">
+
+              <label
+                class="nk-label"
+                for="displayName"
+              >
+                Nombre
+              </label>
+
+              <input
+                id="displayName"
+                name="displayName"
+                class="nk-input"
+                type="text"
+                maxlength="80"
+                autocomplete="name"
+                placeholder="Tu nombre"
+              >
+
+            </div>
+
+          </div>
+
+
+          <!-- EMAIL -->
+
+          <div class="nk-field">
+
+            <label
+              class="nk-label"
+              for="email"
+            >
+              Correo electrónico
+            </label>
+
+            <input
+              id="email"
+              name="email"
+              class="nk-input"
+              type="email"
+              maxlength="254"
+              autocomplete="email"
+              placeholder="tu@correo.com"
+              required
+            >
+
+          </div>
+
+
+          <!-- PASSWORD -->
+
+          <div class="nk-field">
+
+            <label
+              class="nk-label"
+              for="password"
+            >
+              Contraseña
+            </label>
+
+            <div class="nk-password-wrapper">
+
+              <input
+                id="password"
+                name="password"
+                class="nk-input"
+                type="password"
+                minlength="8"
+                maxlength="128"
+                autocomplete="current-password"
+                placeholder="Mínimo 8 caracteres"
+                required
+              >
+
+              <button
+                type="button"
+                id="passwordToggle"
+                class="nk-password-toggle"
+                aria-label="Mostrar contraseña"
+              >
+                Mostrar
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- FORGOT PASSWORD -->
+
+          <div
+            class="nk-auth-forgot"
+            id="forgotPasswordRow"
+          >
+
+            <button
+              type="button"
+              id="forgotPassword"
+              class="nk-auth-link"
+              style="
+                border: 0;
+                background: transparent;
+                padding: 0;
+                cursor: pointer;
+              "
+            >
+              ¿Olvidaste tu contraseña?
+            </button>
+
+          </div>
+
+
+          <!-- SUBMIT -->
+
+          <button
+            type="submit"
+            id="submitButton"
+            class="nk-btn nk-btn-primary"
+            style="width: 100%;"
+          >
+            Iniciar sesión
+          </button>
+
+
+        </form>
+
+
+        <!-- DIVIDER -->
+
+        <div class="nk-auth-divider">
+          O continúa con
+        </div>
+
+
+        <!-- GOOGLE -->
+
+        <button
+          type="button"
+          id="googleButton"
+          class="nk-btn nk-btn-secondary nk-google-button"
+        >
+
+          <span class="nk-google-icon">
+            G
+          </span>
+
+          <span id="googleButtonText">
+            Continuar con Google
+          </span>
+
+        </button>
+
+
+        <!-- TERMS -->
+
+        <p class="nk-auth-terms">
+
+          Al continuar aceptas nuestros
+
+          <a href="#">
+            Términos de servicio
+          </a>
+
+          y
+
+          <a href="#">
+            Política de privacidad
+          </a>.
+
+        </p>
+
+
+        <!-- FOOTER LINK -->
+
+        <div class="nk-auth-footer-link">
+
+          <span id="accountPrompt">
+            ¿Todavía no tienes cuenta?
+          </span>
+
+          <button
+            type="button"
+            id="accountAction"
+            class="nk-auth-link"
+            style="
+              border: 0;
+              background: transparent;
+              padding: 0;
+              cursor: pointer;
+            "
+          >
+            Crear una cuenta
+          </button>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =====================================================
+       FRONTEND AUTH UI LOGIC
+       ===================================================== -->
+
+  <script>
+
+    (function () {
+
+      "use strict";
+
+
+      let currentMode = "login";
+
+      let currentLanguage = "es";
+
+
+      const loginTab =
+        document.getElementById(
+          "loginTab"
+        );
+
+      const registerTab =
+        document.getElementById(
+          "registerTab"
+        );
+
+      const accountAction =
+        document.getElementById(
+          "accountAction"
+        );
+
+      const authForm =
+        document.getElementById(
+          "authForm"
+        );
+
+      const authMessage =
+        document.getElementById(
+          "authMessage"
+        );
+
+      const authTitle =
+        document.getElementById(
+          "authTitle"
+        );
+
+      const authSubtitle =
+        document.getElementById(
+          "authSubtitle"
+        );
+
+      const authEyebrow =
+        document.getElementById(
+          "authEyebrow"
+        );
+
+      const registerExtra =
+        document.getElementById(
+          "registerExtra"
+        );
+
+      const forgotPasswordRow =
+        document.getElementById(
+          "forgotPasswordRow"
+        );
+
+      const submitButton =
+        document.getElementById(
+          "submitButton"
+        );
+
+      const googleButtonText =
+        document.getElementById(
+          "googleButtonText"
+        );
+
+      const accountPrompt =
+        document.getElementById(
+          "accountPrompt"
+        );
+
+      const googleButton =
+        document.getElementById(
+          "googleButton"
+        );
+
+      const passwordToggle =
+        document.getElementById(
+          "passwordToggle"
+        );
+
+      const passwordInput =
+        document.getElementById(
+          "password"
+        );
+
+      const displayNameInput =
+        document.getElementById(
+          "displayName"
+        );
+
+      const forgotPassword =
+        document.getElementById(
+          "forgotPassword"
+        );
+
+
+      const translations = {
+
+        es: {
+
+          eyebrow:
+            "Tu cuenta",
+
+          loginTitle:
+            "Bienvenido de nuevo",
+
+          loginSubtitle:
+            "Inicia sesión para acceder a tu espacio de NegocioKit.",
+
+          registerTitle:
+            "Crea tu cuenta",
+
+          registerSubtitle:
+            "Empieza a guardar tus herramientas y recursos.",
+
+          loginTab:
+            "Iniciar sesión",
+
+          registerTab:
+            "Crear cuenta",
+
+          name:
+            "Nombre",
+
+          email:
+            "Correo electrónico",
+
+          password:
+            "Contraseña",
+
+          passwordPlaceholder:
+            "Mínimo 8 caracteres",
+
+          show:
+            "Mostrar",
+
+          hide:
+            "Ocultar",
+
+          forgot:
+            "¿Olvidaste tu contraseña?",
+
+          loginButton:
+            "Iniciar sesión",
+
+          registerButton:
+            "Crear cuenta",
+
+          google:
+            "Continuar con Google",
+
+          divider:
+            "O continúa con",
+
+          promptLogin:
+            "¿Todavía no tienes cuenta?",
+
+          promptRegister:
+            "¿Ya tienes una cuenta?",
+
+          actionLogin:
+            "Crear una cuenta",
+
+          actionRegister:
+            "Iniciar sesión",
+
+          messagePlaceholder:
+            "",
+
+          invalidEmail:
+            "Ingresa un correo electrónico válido.",
+
+          passwordShort:
+            "La contraseña debe tener al menos 8 caracteres.",
+
+          nameRequired:
+            "Ingresa tu nombre.",
+
+          demo:
+            "La conexión con Firebase se configurará en el siguiente paso."
+
+        },
+
+
+        en: {
+
+          eyebrow:
+            "Your account",
+
+          loginTitle:
+            "Welcome back",
+
+          loginSubtitle:
+            "Sign in to access your NegocioKit workspace.",
+
+          registerTitle:
+            "Create your account",
+
+          registerSubtitle:
+            "Start saving your tools and resources.",
+
+          loginTab:
+            "Sign in",
+
+          registerTab:
+            "Create account",
+
+          name:
+            "Name",
+
+          email:
+            "Email address",
+
+          password:
+            "Password",
+
+          passwordPlaceholder:
+            "Minimum 8 characters",
+
+          show:
+            "Show",
+
+          hide:
+            "Hide",
+
+          forgot:
+            "Forgot your password?",
+
+          loginButton:
+            "Sign in",
+
+          registerButton:
+            "Create account",
+
+          google:
+            "Continue with Google",
+
+          divider:
+            "Or continue with",
+
+          promptLogin:
+            "Don't have an account yet?",
+
+          promptRegister:
+            "Already have an account?",
+
+          actionLogin:
+            "Create an account",
+
+          actionRegister:
+            "Sign in",
+
+          messagePlaceholder:
+            "",
+
+          invalidEmail:
+            "Enter a valid email address.",
+
+          passwordShort:
+            "Password must contain at least 8 characters.",
+
+          nameRequired:
+            "Enter your name.",
+
+          demo:
+            "Firebase authentication will be connected in the next step."
+
+        }
+
+      };
+
+
+      function setMessage(
+        message,
+        type
+      ) {
+
+        authMessage.textContent =
+          message;
+
+        authMessage.className =
+          "nk-auth-message " +
+          type;
+
+      }
+
+
+      function clearMessage() {
+
+        authMessage.textContent =
+          "";
+
+        authMessage.className =
+          "nk-auth-message";
+
+      }
+
+
+      function setMode(mode) {
+
+        currentMode = mode;
+
+        clearMessage();
+
+
+        const isLogin =
+          mode === "login";
+
+
+        loginTab.classList.toggle(
+          "active",
+          isLogin
+        );
+
+
+        registerTab.classList.toggle(
+          "active",
+          !isLogin
+        );
+
+
+        loginTab.setAttribute(
+          "aria-selected",
+          String(isLogin)
+        );
+
+
+        registerTab.setAttribute(
+          "aria-selected",
+          String(!isLogin)
+        );
+
+
+        registerExtra.classList.toggle(
+          "visible",
+          !isLogin
+        );
+
+
+        forgotPasswordRow.style.display =
+          isLogin
+            ? "flex"
+            : "none";
+
+
+        if (isLogin) {
+
+          authTitle.textContent =
+            translations[
+              currentLanguage
+            ].loginTitle;
+
+          authSubtitle.textContent =
+            translations[
+              currentLanguage
+            ].loginSubtitle;
+
+          submitButton.textContent =
+            translations[
+              currentLanguage
+            ].loginButton;
+
+          accountPrompt.textContent =
+            translations[
+              currentLanguage
+            ].promptLogin;
+
+          accountAction.textContent =
+            translations[
+              currentLanguage
+            ].actionLogin;
+
+        } else {
+
+          authTitle.textContent =
+            translations[
+              currentLanguage
+            ].registerTitle;
+
+          authSubtitle.textContent =
+            translations[
+              currentLanguage
+            ].registerSubtitle;
+
+          submitButton.textContent =
+            translations[
+              currentLanguage
+            ].registerButton;
+
+          accountPrompt.textContent =
+            translations[
+              currentLanguage
+            ].promptRegister;
+
+          accountAction.textContent =
+            translations[
+              currentLanguage
+            ].actionRegister;
+
+        }
+
+
+        updateStaticLabels();
+
+      }
+
+
+      function updateStaticLabels() {
+
+        const t =
+          translations[
+            currentLanguage
+          ];
+
+
+        authEyebrow.textContent =
+          t.eyebrow;
+
+
+        loginTab.textContent =
+          t.loginTab;
+
+
+        registerTab.textContent =
+          t.registerTab;
+
+
+        googleButtonText.textContent =
+          t.google;
+
+
+        passwordToggle.textContent =
+          passwordInput.type === "password"
+            ? t.show
+            : t.hide;
+
+
+        passwordInput.placeholder =
+          t.passwordPlaceholder;
+
+
+        forgotPassword.textContent =
+          t.forgot;
+
+
+        const displayNameLabel =
+          document.querySelector(
+            'label[for="displayName"]'
+          );
+
+        if (displayNameLabel) {
+
+          displayNameLabel.textContent =
+            t.name;
+
+        }
+
+
+        const emailLabel =
+          document.querySelector(
+            'label[for="email"]'
+          );
+
+        if (emailLabel) {
+
+          emailLabel.textContent =
+            t.email;
+
+        }
+
+
+        const passwordLabel =
+          document.querySelector(
+            'label[for="password"]'
+          );
+
+        if (passwordLabel) {
+
+          passwordLabel.textContent =
+            t.password;
+
+        }
+
+      }
+
+
+      function setLanguage(language) {
+
+        if (
+          language !== "es" &&
+          language !== "en"
+        ) {
+          return;
+        }
+
+
+        currentLanguage =
+          language;
+
+
+        document.documentElement.lang =
+          language;
+
+
+        document
+          .querySelectorAll(
+            "[data-language]"
+          )
+          .forEach(
+            function (button) {
+
+              const active =
+                button.dataset.language ===
+                language;
+
+              button.classList.toggle(
+                "active",
+                active
+              );
+
+              button.setAttribute(
+                "aria-pressed",
+                String(active)
+              );
+
+            }
+          );
+
+
+        updateStaticLabels();
+
+        setMode(currentMode);
+
+      }
+
+
+      function isValidEmail(value) {
+
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+          .test(value);
+
+      }
+
+
+      function validateForm() {
+
+        const email =
+          document
+            .getElementById("email")
+            .value
+            .trim();
+
+        const password =
+          passwordInput.value;
+
+
+        if (!isValidEmail(email)) {
+
+          setMessage(
+            translations[
+              currentLanguage
+            ].invalidEmail,
+            "error"
+          );
+
+          document
+            .getElementById("email")
+            .focus();
+
+          return false;
+
+        }
+
+
+        if (password.length < 8) {
+
+          setMessage(
+            translations[
+              currentLanguage
+            ].passwordShort,
+            "error"
+          );
+
+          passwordInput.focus();
+
+          return false;
+
+        }
+
+
+        if (
+          currentMode === "register" &&
+          displayNameInput.value.trim().length < 2
+        ) {
+
+          setMessage(
+            translations[
+              currentLanguage
+            ].nameRequired,
+            "error"
+          );
+
+          displayNameInput.focus();
+
+          return false;
+
+        }
+
+
+        return true;
+
+      }
+
+
+      loginTab.addEventListener(
+        "click",
+        function () {
+
+          setMode("login");
+
+        }
+      );
+
+
+      registerTab.addEventListener(
+        "click",
+        function () {
+
+          setMode("register");
+
+        }
+      );
+
+
+      accountAction.addEventListener(
+        "click",
+        function () {
+
+          setMode(
+            currentMode === "login"
+              ? "register"
+              : "login"
+          );
+
+        }
+      );
+
+
+      document
+        .querySelectorAll(
+          "[data-language]"
+        )
+        .forEach(
+          function (button) {
+
+            button.addEventListener(
+              "click",
+              function () {
+
+                setLanguage(
+                  button.dataset.language
+                );
+
+              }
+            );
+
+          }
+        );
+
+
+      passwordToggle.addEventListener(
+        "click",
+        function () {
+
+          const isPassword =
+            passwordInput.type ===
+            "password";
+
+
+          passwordInput.type =
+            isPassword
+              ? "text"
+              : "password";
+
+
+          updateStaticLabels();
+
+        }
+      );
+
+
+      forgotPassword.addEventListener(
+        "click",
+        function () {
+
+          clearMessage();
+
+
+          const email =
+            document
+              .getElementById("email")
+              .value
+              .trim();
+
+
+          if (!isValidEmail(email)) {
+
+            setMessage(
+              translations[
+                currentLanguage
+              ].invalidEmail,
+              "error"
+            );
+
+            document
+              .getElementById("email")
+              .focus();
+
+            return;
+
+          }
+
+
+          setMessage(
+            translations[
+              currentLanguage
+            ].demo,
+            "success"
+          );
+
+        }
+      );
+
+
+      googleButton.addEventListener(
+        "click",
+        function () {
+
+          setMessage(
+            translations[
+              currentLanguage
+            ].demo,
+            "success"
+          );
+
+        }
+      );
+
+
+      authForm.addEventListener(
+        "submit",
+        function (event) {
+
+          event.preventDefault();
+
+
+          if (!validateForm()) {
+            return;
+          }
+
+
+          setMessage(
+            translations[
+              currentLanguage
+            ].demo,
+            "success"
+          );
+
+        }
+      );
+
+
+      setLanguage("es");
+
+      setMode("login");
+
+    })();
+
+  </script>
+
+</body>
+
+</html>
