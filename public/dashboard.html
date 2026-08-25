@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Panel de control de NegocioKit."
+  >
+
+  <meta
+    name="theme-color"
+    content="#f47721"
+  >
+
+  <title>
+    Dashboard | NegocioKit
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="assets/css/styles.css"
+  >
+
+  <style>
+
+    .nk-dashboard-mobile-header {
+      display: none;
+    }
+
+    .nk-dashboard-user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nk-avatar {
+      width: 40px;
+      height: 40px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      background:
+        var(--nk-orange-light);
+
+      color:
+        var(--nk-orange-dark);
+
+      font-weight: 850;
+    }
+
+    .nk-user-meta {
+      display: grid;
+      gap: 2px;
+    }
+
+    .nk-user-name {
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .nk-user-email {
+      color: var(--nk-text-soft);
+      font-size: 0.72rem;
+    }
+
+    .nk-dashboard-section-title {
+      margin: 0;
+      font-size: 1.18rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nk-dashboard-muted {
+      color: var(--nk-text-muted);
+      font-size: 0.84rem;
+    }
+
+    .nk-tool-card {
+      position: relative;
+      height: 100%;
+    }
+
+    .nk-tool-card-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .nk-tool-card-footer {
+      margin-top: auto;
+      padding-top: 20px;
+    }
+
+    .nk-empty-state {
+      padding: 40px 20px;
+      text-align: center;
+      border:
+        1px dashed
+        var(--nk-border);
+      border-radius:
+        var(--nk-radius-lg);
+      background:
+        #fbfcfd;
+    }
+
+    .nk-dashboard-signout {
+      width: 100%;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 1050px) {
+
+      .nk-dashboard-mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 14px 18px;
+
+        background:
+          var(--nk-charcoal);
+
+        color:
+          var(--nk-white);
+      }
+
+      .nk-app-shell {
+        display: block;
+      }
+
+      .nk-sidebar {
+        position: static;
+        height: auto;
+      }
+
+      .nk-sidebar-brand {
+        display: none;
+      }
+
+    }
+
+    @media (max-width: 760px) {
+
+      .nk-dashboard-signout {
+        margin-top: 8px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <div class="nk-app-shell">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside
+      class="nk-sidebar"
+      aria-label="Navegación del dashboard"
+    >
+
+      <div class="nk-sidebar-brand">
+
+        <a
+          href="dashboard.html"
+          class="nk-brand"
+        >
+
+          <img
+            src="assets/images/logo.png"
+            alt="NegocioKit"
+            width="42"
+            height="42"
+          >
+
+          <div class="nk-brand-name">
+            Negocio<span>Kit</span>
+          </div>
+
+        </a>
+
+      </div>
+
+
+      <nav>
+
+        <a
+          href="dashboard.html"
+          class="nk-sidebar-link active"
+          aria-current="page"
+        >
+          <span>▦</span>
+          <span>Dashboard</span>
+        </a>
+
+
+        <a
+          href="tools.html"
+          class="nk-sidebar-link"
+        >
+          <span>⌗</span>
+          <span>Herramientas</span>
+        </a>
+
+
+        <a
+          href="dashboard.html#resources"
+          class="nk-sidebar-link"
+        >
+          <span>□</span>
+          <span>Recursos</span>
+        </a>
+
+
+        <a
+          href="dashboard.html#templates"
+          class="nk-sidebar-link"
+        >
+          <span>▤</span>
+          <span>Plantillas</span>
+        </a>
+
+
+        <a
+          href="dashboard.html#account"
+          class="nk-sidebar-link"
+        >
+          <span>◯</span>
+          <span>Mi cuenta</span>
+        </a>
+
+      </nav>
+
+
+      <button
+        type="button"
+        id="sidebarSignOut"
+        class="nk-btn nk-btn-secondary nk-dashboard-signout"
+      >
+        Cerrar sesión
+      </button>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="nk-main">
+
+
+      <!-- MOBILE HEADER -->
+
+      <div class="nk-dashboard-mobile-header">
+
+        <div class="nk-brand">
+
+          <img
+            src="assets/images/logo.png"
+            alt="NegocioKit"
+            width="36"
+            height="36"
+          >
+
+          <div class="nk-brand-name">
+            Negocio<span>Kit</span>
+          </div>
+
+        </div>
+
+        <button
+          type="button"
+          id="mobileSignOut"
+          class="nk-btn"
+          style="
+            background: rgba(255,255,255,0.08);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.18);
+          "
+        >
+          Salir
+        </button>
+
+      </div>
+
+
+      <!-- TOP BAR -->
+
+      <div class="nk-topbar">
+
+        <div>
+
+          <div class="nk-eyebrow">
+            Panel de control
+          </div>
+
+          <h1
+            style="
+              margin: 0;
+              font-size: clamp(1.7rem, 3vw, 2.3rem);
+              letter-spacing: -0.03em;
+            "
+          >
+            Hola, <span id="userNameHeading">Emprendedor</span>
+          </h1>
+
+          <p
+            class="nk-dashboard-muted"
+            style="margin: 8px 0 0;"
+          >
+            Aquí tienes una vista rápida de tu negocio.
+          </p>
+
+        </div>
+
+
+        <div
+          class="nk-dashboard-user"
+          id="dashboardUser"
+        >
+
+          <div class="nk-avatar">
+            NK
+          </div>
+
+          <div class="nk-user-meta">
+
+            <div
+              id="dashboardUserName"
+              class="nk-user-name"
+            >
+              Cargando...
+            </div>
+
+            <div
+              id="dashboardUserEmail"
+              class="nk-user-email"
+            >
+              Cargando...
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ===================================================
+           STATS
+           =================================================== -->
+
+      <section>
+
+        <div class="nk-grid nk-grid-4">
+
+
+          <article class="nk-stat-card">
+
+            <div class="nk-stat-label">
+              Ventas del mes
+            </div>
+
+            <div
+              class="nk-stat-value"
+              id="salesValue"
+            >
+              $0.00
+            </div>
+
+            <div class="nk-stat-change">
+              Próximamente conectado
+            </div>
+
+          </article>
+
+
+          <article class="nk-stat-card">
+
+            <div class="nk-stat-label">
+              Ganancia estimada
+            </div>
+
+            <div
+              class="nk-stat-value"
+              id="profitValue"
+            >
+              $0.00
+            </div>
+
+            <div class="nk-stat-change">
+              Calculada con tus datos
+            </div>
+
+          </article>
+
+
+          <article class="nk-stat-card">
+
+            <div class="nk-stat-label">
+              Órdenes
+            </div>
+
+            <div
+              class="nk-stat-value"
+              id="ordersValue"
+            >
+              0
+            </div>
+
+            <div class="nk-stat-change">
+              Historial próximamente
+            </div>
+
+          </article>
+
+
+          <article class="nk-stat-card">
+
+            <div class="nk-stat-label">
+              Plan
+            </div>
+
+            <div
+              class="nk-stat-value"
+              id="planValue"
+              style="font-size: 1.35rem;"
+            >
+              Gratis
+            </div>
+
+            <div
+              class="nk-stat-change"
+              id="accountStatus"
+            >
+              Cuenta activa
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           TOOLS
+           =================================================== -->
+
+      <section
+        style="margin-top: 30px;"
+      >
+
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+          "
+        >
+
+          <div>
+
+            <h2 class="nk-dashboard-section-title">
+              Herramientas
+            </h2>
+
+            <p class="nk-dashboard-muted">
+              Calcula y analiza los números de tu negocio.
+            </p>
+
+          </div>
+
+          <a
+            href="tools.html"
+            class="nk-btn nk-btn-secondary"
+          >
+            Ver todas
+          </a>
+
+        </div>
+
+
+        <div class="nk-grid nk-grid-3">
+
+
+          <article class="nk-card nk-tool-card">
+
+            <div class="nk-card-body nk-tool-card-content">
+
+              <div class="nk-feature-icon">
+                $
+              </div>
+
+              <h3>
+                Precio de venta
+              </h3>
+
+              <p class="nk-subtitle">
+                Encuentra un precio basado en tu costo
+                y margen deseado.
+              </p>
+
+              <div class="nk-tool-card-footer">
+
+                <a
+                  href="calculator-price.html"
+                  class="nk-btn nk-btn-primary"
+                  style="width: 100%;"
+                >
+                  Abrir
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="nk-card nk-tool-card">
+
+            <div class="nk-card-body nk-tool-card-content">
+
+              <div class="nk-feature-icon">
+                %
+              </div>
+
+              <h3>
+                Margen
+              </h3>
+
+              <p class="nk-subtitle">
+                Comprueba cuánto ganas realmente
+                por cada venta.
+              </p>
+
+              <div class="nk-tool-card-footer">
+
+                <a
+                  href="calculator-margin.html"
+                  class="nk-btn nk-btn-primary"
+                  style="width: 100%;"
+                >
+                  Abrir
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="nk-card nk-tool-card">
+
+            <div class="nk-card-body nk-tool-card-content">
+
+              <div class="nk-feature-icon">
+                ≈
+              </div>
+
+              <h3>
+                Punto de equilibrio
+              </h3>
+
+              <p class="nk-subtitle">
+                Descubre cuántas ventas necesitas
+                para cubrir tus costos.
+              </p>
+
+              <div class="nk-tool-card-footer">
+
+                <a
+                  href="calculator-break-even.html"
+                  class="nk-btn nk-btn-primary"
+                  style="width: 100%;"
+                >
+                  Abrir
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           RESOURCES
+           =================================================== -->
+
+      <section
+        id="resources"
+        style="margin-top: 30px;"
+      >
+
+        <div
+          style="margin-bottom: 18px;"
+        >
+
+          <h2 class="nk-dashboard-section-title">
+            Recursos
+          </h2>
+
+          <p class="nk-dashboard-muted">
+            Materiales diseñados para ayudarte a operar mejor.
+          </p>
+
+        </div>
+
+
+        <div class="nk-card">
+
+          <div class="nk-card-body">
+
+            <div class="nk-empty-state">
+
+              <div
+                class="nk-feature-icon"
+                style="
+                  margin-inline: auto;
+                  background: var(--nk-orange-light);
+                "
+              >
+                +
+              </div>
+
+              <h3>
+                Tu biblioteca está comenzando
+              </h3>
+
+              <p class="nk-dashboard-muted">
+                Aquí aparecerán tus plantillas,
+                recursos comprados y materiales guardados.
+              </p>
+
+              <a
+                href="index.html#recursos"
+                class="nk-btn nk-btn-primary"
+                style="margin-top: 14px;"
+              >
+                Explorar recursos
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           TEMPLATES
+           =================================================== -->
+
+      <section
+        id="templates"
+        style="margin-top: 30px;"
+      >
+
+        <div
+          style="margin-bottom: 18px;"
+        >
+
+          <h2 class="nk-dashboard-section-title">
+            Plantillas
+          </h2>
+
+          <p class="nk-dashboard-muted">
+            Tus recursos descargables aparecerán aquí.
+          </p>
+
+        </div>
+
+
+        <div class="nk-grid nk-grid-3">
+
+
+          <article class="nk-card">
+
+            <div class="nk-card-body">
+
+              <span class="nk-badge nk-badge-orange">
+                Excel
+              </span>
+
+              <h3>
+                Control de inventario
+              </h3>
+
+              <p class="nk-subtitle">
+                Plantilla para administrar productos,
+                costos y existencias.
+              </p>
+
+              <button
+                type="button"
+                class="nk-btn nk-btn-secondary"
+                disabled
+                style="
+                  width: 100%;
+                  cursor: not-allowed;
+                  opacity: 0.65;
+                "
+              >
+                Disponible próximamente
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <article class="nk-card">
+
+            <div class="nk-card-body">
+
+              <span class="nk-badge nk-badge-green">
+                Finanzas
+              </span>
+
+              <h3>
+                Flujo de caja
+              </h3>
+
+              <p class="nk-subtitle">
+                Organiza ingresos, gastos y movimientos
+                de efectivo.
+              </p>
+
+              <button
+                type="button"
+                class="nk-btn nk-btn-secondary"
+                disabled
+                style="
+                  width: 100%;
+                  cursor: not-allowed;
+                  opacity: 0.65;
+                "
+              >
+                Disponible próximamente
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <article class="nk-card">
+
+            <div class="nk-card-body">
+
+              <span class="nk-badge nk-badge-gray">
+                Marketing
+              </span>
+
+              <h3>
+                Calendario promocional
+              </h3>
+
+              <p class="nk-subtitle">
+                Planifica campañas y promociones
+                durante el mes.
+              </p>
+
+              <button
+                type="button"
+                class="nk-btn nk-btn-secondary"
+                disabled
+                style="
+                  width: 100%;
+                  cursor: not-allowed;
+                  opacity: 0.65;
+                "
+              >
+                Disponible próximamente
+              </button>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           ACCOUNT
+           =================================================== -->
+
+      <section
+        id="account"
+        style="margin-top: 30px;"
+      >
+
+        <div
+          style="margin-bottom: 18px;"
+        >
+
+          <h2 class="nk-dashboard-section-title">
+            Mi cuenta
+          </h2>
+
+          <p class="nk-dashboard-muted">
+            Información básica de tu cuenta NegocioKit.
+          </p>
+
+        </div>
+
+
+        <div class="nk-card">
+
+          <div class="nk-card-body">
+
+
+            <div
+              class="nk-grid nk-grid-2"
+            >
+
+              <div>
+
+                <div class="nk-stat-label">
+                  Nombre
+                </div>
+
+                <div
+                  id="accountName"
+                  style="
+                    margin-top: 6px;
+                    font-weight: 800;
+                  "
+                >
+                  -
+                </div>
+
+              </div>
+
+
+              <div>
+
+                <div class="nk-stat-label">
+                  Correo
+                </div>
+
+                <div
+                  id="accountEmail"
+                  style="
+                    margin-top: 6px;
+                    font-weight: 800;
+                  "
+                >
+                  -
+                </div>
+
+              </div>
+
+
+              <div>
+
+                <div class="nk-stat-label">
+                  Plan
+                </div>
+
+                <div
+                  id="accountPlan"
+                  style="
+                    margin-top: 6px;
+                    font-weight: 800;
+                  "
+                >
+                  Gratis
+                </div>
+
+              </div>
+
+
+              <div>
+
+                <div class="nk-stat-label">
+                  Estado
+                </div>
+
+                <div
+                  style="
+                    margin-top: 8px;
+                  "
+                >
+
+                  <span class="nk-badge nk-badge-green">
+                    Activa
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div
+              style="
+                margin-top: 26px;
+                padding-top: 22px;
+                border-top: 1px solid var(--nk-border);
+              "
+            >
+
+              <button
+                type="button"
+                id="accountSignOut"
+                class="nk-btn nk-btn-secondary"
+              >
+                Cerrar sesión
+              </button>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+    </main>
+
+  </div>
+
+
+  <!-- =====================================================
+       FIREBASE DASHBOARD LOGIC
+       ===================================================== -->
+
+  <script type="module">
+
+    import {
+      auth,
+      db
+    } from "./assets/js/firebase-config.js";
+
+    import {
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+    import {
+      doc,
+      getDoc
+    } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+    const userNameHeading =
+      document.getElementById(
+        "userNameHeading"
+      );
+
+    const dashboardUserName =
+      document.getElementById(
+        "dashboardUserName"
+      );
+
+    const dashboardUserEmail =
+      document.getElementById(
+        "dashboardUserEmail"
+      );
+
+    const accountName =
+      document.getElementById(
+        "accountName"
+      );
+
+    const accountEmail =
+      document.getElementById(
+        "accountEmail"
+      );
+
+    const accountPlan =
+      document.getElementById(
+        "accountPlan"
+      );
+
+    const planValue =
+      document.getElementById(
+        "planValue"
+      );
+
+
+    function escapeInitials(
+      value
+    ) {
+
+      const safe =
+        String(value || "NK")
+          .trim()
+          .split(/\s+/)
+          .slice(0, 2)
+          .map(
+            function (part) {
+              return part
+                .charAt(0)
+                .toUpperCase();
+            }
+          )
+          .join("");
+
+
+      return safe || "NK";
+
+    }
+
+
+    function setText(
+      element,
+      value
+    ) {
+
+      element.textContent =
+        value || "";
+
+    }
+
+
+    async function loadProfile(
+      user
+    ) {
+
+      const profileRef =
+        doc(
+          db,
+          "users",
+          user.uid
+        );
+
+
+      const snapshot =
+        await getDoc(
+          profileRef
+        );
+
+
+      let displayName =
+        user.displayName ||
+        user.email?.split("@")[0] ||
+        "Emprendedor";
+
+
+      let plan =
+        "Gratis";
+
+
+      if (
+        snapshot.exists()
+      ) {
+
+        const data =
+          snapshot.data();
+
+
+        if (
+          typeof data.displayName ===
+          "string" &&
+          data.displayName.trim()
+        ) {
+
+          displayName =
+            data.displayName.trim();
+
+        }
+
+      }
+
+
+      setText(
+        userNameHeading,
+        displayName
+      );
+
+
+      setText(
+        dashboardUserName,
+        displayName
+      );
+
+
+      setText(
+        dashboardUserEmail,
+        user.email || ""
+      );
+
+
+      setText(
+        accountName,
+        displayName
+      );
+
+
+      setText(
+        accountEmail,
+        user.email || ""
+      );
+
+
+      setText(
+        accountPlan,
+        plan
+      );
+
+
+      setText(
+        planValue,
+        plan
+      );
+
+
+      const avatar =
+        document.querySelector(
+          ".nk-avatar"
+        );
+
+
+      if (avatar) {
+
+        avatar.textContent =
+          escapeInitials(
+            displayName
+          );
+
+      }
+
+    }
+
+
+    async function doSignOut() {
+
+      try {
+
+        await signOut(
+          auth
+        );
+
+        window.location.href =
+          "login.html";
+
+      } catch (
+        error
+      ) {
+
+        console.error(
+          "Sign out error:",
+          error
+        );
+
+      }
+
+    }
+
+
+    document
+      .getElementById(
+        "sidebarSignOut"
+      )
+      .addEventListener(
+        "click",
+        doSignOut
+      );
+
+
+    document
+      .getElementById(
+        "mobileSignOut"
+      )
+      .addEventListener(
+        "click",
+        doSignOut
+      );
+
+
+    document
+      .getElementById(
+        "accountSignOut"
+      )
+      .addEventListener(
+        "click",
+        doSignOut
+      );
+
+
+    onAuthStateChanged(
+      auth,
+      async function (
+        user
+      ) {
+
+        if (!user) {
+
+          window.location.href =
+            "login.html";
+
+          return;
+
+        }
+
+
+        try {
+
+          await loadProfile(
+            user
+          );
+
+        } catch (
+          error
+        ) {
+
+          console.error(
+            "Profile load error:",
+            error
+          );
+
+          setText(
+            userNameHeading,
+            user.displayName ||
+              "Emprendedor"
+          );
+
+          setText(
+            dashboardUserName,
+            user.displayName ||
+              "Emprendedor"
+          );
+
+          setText(
+            dashboardUserEmail,
+            user.email || ""
+          );
+
+          setText(
+            accountName,
+            user.displayName ||
+              "Emprendedor"
+          );
+
+          setText(
+            accountEmail,
+            user.email || ""
+          );
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+
+</html>
