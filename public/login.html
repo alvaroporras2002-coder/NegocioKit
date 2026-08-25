@@ -33,17 +33,26 @@
 
     .nk-auth-page {
       min-height: 100vh;
+
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: var(--nk-bg);
+
+      grid-template-columns:
+        1fr
+        1fr;
+
+      background:
+        var(--nk-bg);
     }
 
     .nk-auth-brand-panel {
       position: relative;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       padding: 60px;
+
       overflow: hidden;
 
       background:
@@ -63,6 +72,7 @@
 
     .nk-auth-brand-panel::after {
       content: "";
+
       position: absolute;
 
       width: 420px;
@@ -101,6 +111,7 @@
         clamp(2.2rem, 5vw, 4.2rem);
 
       line-height: 1.04;
+
       letter-spacing: -0.04em;
     }
 
@@ -116,11 +127,13 @@
       color: #d9dee3;
 
       font-size: 1.05rem;
+
       line-height: 1.7;
     }
 
     .nk-auth-points {
       display: grid;
+
       gap: 12px;
 
       margin-top: 34px;
@@ -128,12 +141,15 @@
 
     .nk-auth-point {
       display: flex;
+
       align-items: center;
+
       gap: 12px;
 
       color: #e7ebee;
 
       font-size: 0.92rem;
+
       font-weight: 650;
     }
 
@@ -142,6 +158,7 @@
       height: 30px;
 
       display: grid;
+
       place-items: center;
 
       flex: 0 0 auto;
@@ -156,7 +173,9 @@
 
     .nk-auth-form-panel {
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
       padding: 32px;
@@ -168,7 +187,9 @@
 
     .nk-auth-topbar {
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
 
       gap: 12px;
@@ -178,7 +199,9 @@
 
     .nk-auth-home {
       color: var(--nk-text-muted);
+
       font-size: 0.86rem;
+
       font-weight: 700;
     }
 
@@ -188,15 +211,19 @@
 
     .nk-language-selector {
       display: inline-flex;
+
       align-items: center;
+
       gap: 4px;
 
       padding: 4px;
 
-      background: var(--nk-white);
+      background:
+        var(--nk-white);
 
       border:
-        1px solid var(--nk-border);
+        1px solid
+        var(--nk-border);
 
       border-radius: 10px;
     }
@@ -208,21 +235,27 @@
       padding: 0 8px;
 
       border: 0;
+
       border-radius: 7px;
 
       background: transparent;
 
-      color: var(--nk-text-muted);
+      color:
+        var(--nk-text-muted);
 
       font-size: 0.72rem;
+
       font-weight: 800;
 
       cursor: pointer;
     }
 
     .nk-language-button.active {
-      background: var(--nk-orange-light);
-      color: var(--nk-orange-dark);
+      background:
+        var(--nk-orange-light);
+
+      color:
+        var(--nk-orange-dark);
     }
 
     .nk-auth-heading {
@@ -233,6 +266,7 @@
       margin: 0;
 
       font-size: 2rem;
+
       line-height: 1.1;
 
       letter-spacing: -0.03em;
@@ -241,19 +275,23 @@
     .nk-auth-heading p {
       margin-top: 10px;
 
-      color: var(--nk-text-muted);
+      color:
+        var(--nk-text-muted);
     }
 
     .nk-auth-mode-switch {
       display: grid;
 
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns:
+        1fr
+        1fr;
 
       margin-bottom: 24px;
 
       padding: 4px;
 
-      background: #eef1f4;
+      background:
+        #eef1f4;
 
       border-radius: 12px;
     }
@@ -262,28 +300,35 @@
       min-height: 40px;
 
       border: 0;
+
       border-radius: 9px;
 
       background: transparent;
 
-      color: var(--nk-text-muted);
+      color:
+        var(--nk-text-muted);
 
       font-size: 0.85rem;
+
       font-weight: 750;
 
       cursor: pointer;
     }
 
     .nk-auth-mode-button.active {
-      background: var(--nk-white);
+      background:
+        var(--nk-white);
 
-      color: var(--nk-charcoal);
+      color:
+        var(--nk-charcoal);
 
-      box-shadow: var(--nk-shadow-sm);
+      box-shadow:
+        var(--nk-shadow-sm);
     }
 
     .nk-auth-form {
       display: grid;
+
       gap: 18px;
     }
 
@@ -299,57 +344,74 @@
       position: absolute;
 
       right: 8px;
+
       top: 50%;
 
-      transform: translateY(-50%);
+      transform:
+        translateY(-50%);
 
       min-height: 34px;
 
       padding: 0 10px;
 
       border: 0;
+
       border-radius: 8px;
 
-      background: #f2f4f6;
+      background:
+        #f2f4f6;
 
-      color: var(--nk-text-muted);
+      color:
+        var(--nk-text-muted);
 
       font-size: 0.72rem;
+
       font-weight: 800;
     }
 
     .nk-auth-forgot {
       display: flex;
+
       justify-content: flex-end;
 
       margin-top: -6px;
     }
 
     .nk-auth-link {
-      color: var(--nk-orange-dark);
+      color:
+        var(--nk-orange-dark);
 
       font-size: 0.82rem;
+
       font-weight: 750;
     }
 
     .nk-auth-link:hover {
-      text-decoration: underline;
+      text-decoration:
+        underline;
     }
 
     .nk-auth-divider {
       display: flex;
+
       align-items: center;
+
       gap: 12px;
 
       margin: 22px 0;
 
-      color: var(--nk-text-soft);
+      color:
+        var(--nk-text-soft);
 
       font-size: 0.75rem;
+
       font-weight: 700;
 
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        0.06em;
     }
 
     .nk-auth-divider::before,
@@ -360,7 +422,8 @@
 
       height: 1px;
 
-      background: var(--nk-border);
+      background:
+        var(--nk-border);
     }
 
     .nk-google-button {
@@ -372,15 +435,18 @@
       height: 22px;
 
       display: grid;
+
       place-items: center;
 
       border-radius: 6px;
 
       background: #fff;
 
-      color: var(--nk-charcoal);
+      color:
+        var(--nk-charcoal);
 
       font-size: 0.78rem;
+
       font-weight: 900;
     }
 
@@ -389,41 +455,55 @@
 
       padding: 12px 14px;
 
-      border-radius: var(--nk-radius-md);
+      border-radius:
+        var(--nk-radius-md);
 
       font-size: 0.84rem;
+
       font-weight: 650;
+
       line-height: 1.5;
     }
 
     .nk-auth-message.error {
       display: block;
 
-      background: var(--nk-danger-light);
-      color: var(--nk-danger);
+      background:
+        var(--nk-danger-light);
+
+      color:
+        var(--nk-danger);
     }
 
     .nk-auth-message.success {
       display: block;
 
-      background: var(--nk-green-light);
-      color: var(--nk-green);
+      background:
+        var(--nk-green-light);
+
+      color:
+        var(--nk-green);
     }
 
     .nk-auth-terms {
       margin-top: 18px;
 
-      color: var(--nk-text-soft);
+      color:
+        var(--nk-text-soft);
 
       font-size: 0.73rem;
+
       line-height: 1.55;
 
       text-align: center;
     }
 
     .nk-auth-terms a {
-      color: var(--nk-text-muted);
-      text-decoration: underline;
+      color:
+        var(--nk-text-muted);
+
+      text-decoration:
+        underline;
     }
 
     .nk-register-extra {
@@ -432,6 +512,7 @@
 
     .nk-register-extra.visible {
       display: grid;
+
       gap: 18px;
     }
 
@@ -440,9 +521,16 @@
 
       text-align: center;
 
-      color: var(--nk-text-muted);
+      color:
+        var(--nk-text-muted);
 
       font-size: 0.84rem;
+    }
+
+    .nk-loading {
+      pointer-events: none;
+
+      opacity: 0.7;
     }
 
     @media (max-width: 900px) {
@@ -453,19 +541,24 @@
 
       .nk-auth-brand-panel {
         min-height: 330px;
-        padding: 42px 28px;
+
+        padding:
+          42px 28px;
       }
 
       .nk-auth-brand-content {
-        width: min(100%, 700px);
+        width:
+          min(100%, 700px);
       }
 
       .nk-auth-brand-title {
-        font-size: 2.7rem;
+        font-size:
+          2.7rem;
       }
 
       .nk-auth-brand-copy {
-        font-size: 0.94rem;
+        font-size:
+          0.94rem;
       }
 
       .nk-auth-points {
@@ -477,22 +570,29 @@
     @media (max-width: 560px) {
 
       .nk-auth-form-panel {
-        padding: 22px 16px 40px;
+        padding:
+          22px 16px 40px;
       }
 
       .nk-auth-brand-panel {
-        min-height: 260px;
-        padding: 32px 20px;
+        min-height:
+          260px;
+
+        padding:
+          32px 20px;
       }
 
       .nk-auth-logo {
         width: 68px;
         height: 68px;
-        margin-bottom: 18px;
+
+        margin-bottom:
+          18px;
       }
 
       .nk-auth-brand-title {
-        font-size: 2.2rem;
+        font-size:
+          2.2rem;
       }
 
     }
@@ -504,12 +604,11 @@
 
 <body>
 
-
   <main class="nk-auth-page">
 
 
     <!-- ===================================================
-         LEFT BRAND PANEL
+         BRAND PANEL
          =================================================== -->
 
     <section class="nk-auth-brand-panel">
@@ -599,15 +698,13 @@
 
 
     <!-- ===================================================
-         RIGHT FORM PANEL
+         AUTH PANEL
          =================================================== -->
 
     <section class="nk-auth-form-panel">
 
       <div class="nk-auth-container">
 
-
-        <!-- TOP BAR -->
 
         <div class="nk-auth-topbar">
 
@@ -647,8 +744,6 @@
         </div>
 
 
-        <!-- HEADING -->
-
         <div class="nk-auth-heading">
 
           <div
@@ -668,8 +763,6 @@
 
         </div>
 
-
-        <!-- LOGIN / REGISTER SWITCH -->
 
         <div
           class="nk-auth-mode-switch"
@@ -700,8 +793,6 @@
         </div>
 
 
-        <!-- MESSAGE -->
-
         <div
           id="authMessage"
           class="nk-auth-message"
@@ -711,16 +802,12 @@
         </div>
 
 
-        <!-- AUTH FORM -->
-
         <form
           id="authForm"
           class="nk-auth-form"
           novalidate
         >
 
-
-          <!-- REGISTER EXTRA FIELDS -->
 
           <div
             id="registerExtra"
@@ -751,8 +838,6 @@
           </div>
 
 
-          <!-- EMAIL -->
-
           <div class="nk-field">
 
             <label
@@ -775,8 +860,6 @@
 
           </div>
 
-
-          <!-- PASSWORD -->
 
           <div class="nk-field">
 
@@ -815,8 +898,6 @@
           </div>
 
 
-          <!-- FORGOT PASSWORD -->
-
           <div
             class="nk-auth-forgot"
             id="forgotPasswordRow"
@@ -839,8 +920,6 @@
           </div>
 
 
-          <!-- SUBMIT -->
-
           <button
             type="submit"
             id="submitButton"
@@ -854,14 +933,10 @@
         </form>
 
 
-        <!-- DIVIDER -->
-
         <div class="nk-auth-divider">
           O continúa con
         </div>
 
-
-        <!-- GOOGLE -->
 
         <button
           type="button"
@@ -880,8 +955,6 @@
         </button>
 
 
-        <!-- TERMS -->
-
         <p class="nk-auth-terms">
 
           Al continuar aceptas nuestros
@@ -898,8 +971,6 @@
 
         </p>
 
-
-        <!-- FOOTER LINK -->
 
         <div class="nk-auth-footer-link">
 
@@ -933,662 +1004,619 @@
 
 
   <!-- =====================================================
-       FRONTEND AUTH UI LOGIC
+       FIREBASE AUTHENTICATION
        ===================================================== -->
 
-  <script>
+  <script type="module">
 
-    (function () {
+    import {
+      auth,
+      db
+    } from "./assets/js/firebase-config.js";
 
-      "use strict";
+    import {
+      browserLocalPersistence,
+      createUserWithEmailAndPassword,
+      GoogleAuthProvider,
+      onAuthStateChanged,
+      sendPasswordResetEmail,
+      setPersistence,
+      signInWithEmailAndPassword,
+      signInWithPopup,
+      signOut,
+      updateProfile
+    } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+    import {
+      doc,
+      getDoc,
+      serverTimestamp,
+      setDoc
+    } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
-      let currentMode = "login";
+    const loginTab =
+      document.getElementById(
+        "loginTab"
+      );
 
-      let currentLanguage = "es";
+    const registerTab =
+      document.getElementById(
+        "registerTab"
+      );
+
+    const accountAction =
+      document.getElementById(
+        "accountAction"
+      );
+
+    const authForm =
+      document.getElementById(
+        "authForm"
+      );
+
+    const authMessage =
+      document.getElementById(
+        "authMessage"
+      );
+
+    const authTitle =
+      document.getElementById(
+        "authTitle"
+      );
+
+    const authSubtitle =
+      document.getElementById(
+        "authSubtitle"
+      );
+
+    const authEyebrow =
+      document.getElementById(
+        "authEyebrow"
+      );
+
+    const registerExtra =
+      document.getElementById(
+        "registerExtra"
+      );
+
+    const forgotPasswordRow =
+      document.getElementById(
+        "forgotPasswordRow"
+      );
+
+    const submitButton =
+      document.getElementById(
+        "submitButton"
+      );
+
+    const googleButton =
+      document.getElementById(
+        "googleButton"
+      );
+
+    const googleButtonText =
+      document.getElementById(
+        "googleButtonText"
+      );
+
+    const accountPrompt =
+      document.getElementById(
+        "accountPrompt"
+      );
+
+    const passwordToggle =
+      document.getElementById(
+        "passwordToggle"
+      );
+
+    const passwordInput =
+      document.getElementById(
+        "password"
+      );
+
+    const displayNameInput =
+      document.getElementById(
+        "displayName"
+      );
+
+    const emailInput =
+      document.getElementById(
+        "email"
+      );
+
+    const forgotPassword =
+      document.getElementById(
+        "forgotPassword"
+      );
 
 
-      const loginTab =
-        document.getElementById(
-          "loginTab"
+    let currentMode = "login";
+
+    let currentLanguage = "es";
+
+
+    const translations = {
+
+      es: {
+
+        eyebrow:
+          "Tu cuenta",
+
+        loginTitle:
+          "Bienvenido de nuevo",
+
+        loginSubtitle:
+          "Inicia sesión para acceder a tu espacio de NegocioKit.",
+
+        registerTitle:
+          "Crea tu cuenta",
+
+        registerSubtitle:
+          "Empieza a guardar tus herramientas y recursos.",
+
+        loginTab:
+          "Iniciar sesión",
+
+        registerTab:
+          "Crear cuenta",
+
+        name:
+          "Nombre",
+
+        email:
+          "Correo electrónico",
+
+        password:
+          "Contraseña",
+
+        passwordPlaceholder:
+          "Mínimo 8 caracteres",
+
+        show:
+          "Mostrar",
+
+        hide:
+          "Ocultar",
+
+        forgot:
+          "¿Olvidaste tu contraseña?",
+
+        loginButton:
+          "Iniciar sesión",
+
+        registerButton:
+          "Crear cuenta",
+
+        google:
+          "Continuar con Google",
+
+        promptLogin:
+          "¿Todavía no tienes cuenta?",
+
+        promptRegister:
+          "¿Ya tienes una cuenta?",
+
+        actionLogin:
+          "Crear una cuenta",
+
+        actionRegister:
+          "Iniciar sesión",
+
+        invalidEmail:
+          "Ingresa un correo electrónico válido.",
+
+        passwordShort:
+          "La contraseña debe tener al menos 8 caracteres.",
+
+        nameRequired:
+          "Ingresa tu nombre.",
+
+        working:
+          "Procesando...",
+
+        accountCreated:
+          "Cuenta creada correctamente.",
+
+        loginSuccess:
+          "Inicio de sesión correcto.",
+
+        resetSent:
+          "Te enviamos un enlace para restablecer tu contraseña.",
+
+        googleSuccess:
+          "Inicio de sesión con Google correcto.",
+
+        genericError:
+          "No pudimos completar la operación.",
+
+        emailAlready:
+          "Ya existe una cuenta con este correo.",
+
+        invalidCredentials:
+          "El correo o la contraseña no son correctos.",
+
+        weakPassword:
+          "La contraseña no cumple los requisitos de seguridad.",
+
+        popupClosed:
+          "La ventana de Google fue cerrada.",
+
+        accountDisabled:
+          "Esta cuenta está deshabilitada.",
+
+        tooManyRequests:
+          "Demasiados intentos. Espera un momento y vuelve a intentarlo."
+
+      },
+
+
+      en: {
+
+        eyebrow:
+          "Your account",
+
+        loginTitle:
+          "Welcome back",
+
+        loginSubtitle:
+          "Sign in to access your NegocioKit workspace.",
+
+        registerTitle:
+          "Create your account",
+
+        registerSubtitle:
+          "Start saving your tools and resources.",
+
+        loginTab:
+          "Sign in",
+
+        registerTab:
+          "Create account",
+
+        name:
+          "Name",
+
+        email:
+          "Email address",
+
+        password:
+          "Password",
+
+        passwordPlaceholder:
+          "Minimum 8 characters",
+
+        show:
+          "Show",
+
+        hide:
+          "Hide",
+
+        forgot:
+          "Forgot your password?",
+
+        loginButton:
+          "Sign in",
+
+        registerButton:
+          "Create account",
+
+        google:
+          "Continue with Google",
+
+        promptLogin:
+          "Don't have an account yet?",
+
+        promptRegister:
+          "Already have an account?",
+
+        actionLogin:
+          "Create an account",
+
+        actionRegister:
+          "Sign in",
+
+        invalidEmail:
+          "Enter a valid email address.",
+
+        passwordShort:
+          "Password must contain at least 8 characters.",
+
+        nameRequired:
+          "Enter your name.",
+
+        working:
+          "Processing...",
+
+        accountCreated:
+          "Account created successfully.",
+
+        loginSuccess:
+          "Signed in successfully.",
+
+        resetSent:
+          "We sent you a password reset link.",
+
+        googleSuccess:
+          "Google sign-in successful.",
+
+        genericError:
+          "We could not complete the operation.",
+
+        emailAlready:
+          "An account already exists with this email.",
+
+        invalidCredentials:
+          "The email or password is incorrect.",
+
+        weakPassword:
+          "The password does not meet the security requirements.",
+
+        popupClosed:
+          "The Google sign-in window was closed.",
+
+        accountDisabled:
+          "This account has been disabled.",
+
+        tooManyRequests:
+          "Too many attempts. Please wait and try again."
+
+      }
+
+    };
+
+
+    function currentText() {
+
+      return translations[
+        currentLanguage
+      ];
+
+    }
+
+
+    function showMessage(
+      message,
+      type = "success"
+    ) {
+
+      authMessage.textContent =
+        message;
+
+      authMessage.className =
+        "nk-auth-message " +
+        type;
+
+    }
+
+
+    function clearMessage() {
+
+      authMessage.textContent =
+        "";
+
+      authMessage.className =
+        "nk-auth-message";
+
+    }
+
+
+    function setLoading(
+      loading
+    ) {
+
+      submitButton.disabled =
+        loading;
+
+      googleButton.disabled =
+        loading;
+
+      submitButton.classList.toggle(
+        "nk-loading",
+        loading
+      );
+
+      googleButton.classList.toggle(
+        "nk-loading",
+        loading
+      );
+
+      submitButton.textContent =
+        loading
+          ? currentText().working
+          : currentMode === "login"
+            ? currentText().loginButton
+            : currentText().registerButton;
+
+    }
+
+
+    function setMode(
+      mode
+    ) {
+
+      currentMode =
+        mode;
+
+      clearMessage();
+
+      const isLogin =
+        mode === "login";
+
+
+      loginTab.classList.toggle(
+        "active",
+        isLogin
+      );
+
+      registerTab.classList.toggle(
+        "active",
+        !isLogin
+      );
+
+
+      loginTab.setAttribute(
+        "aria-selected",
+        String(isLogin)
+      );
+
+      registerTab.setAttribute(
+        "aria-selected",
+        String(!isLogin)
+      );
+
+
+      registerExtra.classList.toggle(
+        "visible",
+        !isLogin
+      );
+
+
+      forgotPasswordRow.style.display =
+        isLogin
+          ? "flex"
+          : "none";
+
+
+      const t =
+        currentText();
+
+
+      authTitle.textContent =
+        isLogin
+          ? t.loginTitle
+          : t.registerTitle;
+
+
+      authSubtitle.textContent =
+        isLogin
+          ? t.loginSubtitle
+          : t.registerSubtitle;
+
+
+      submitButton.textContent =
+        isLogin
+          ? t.loginButton
+          : t.registerButton;
+
+
+      accountPrompt.textContent =
+        isLogin
+          ? t.promptLogin
+          : t.promptRegister;
+
+
+      accountAction.textContent =
+        isLogin
+          ? t.actionLogin
+          : t.actionRegister;
+
+
+      updateStaticLabels();
+
+    }
+
+
+    function updateStaticLabels() {
+
+      const t =
+        currentText();
+
+
+      authEyebrow.textContent =
+        t.eyebrow;
+
+
+      loginTab.textContent =
+        t.loginTab;
+
+
+      registerTab.textContent =
+        t.registerTab;
+
+
+      googleButtonText.textContent =
+        t.google;
+
+
+      passwordToggle.textContent =
+        passwordInput.type === "password"
+          ? t.show
+          : t.hide;
+
+
+      passwordInput.placeholder =
+        t.passwordPlaceholder;
+
+
+      forgotPassword.textContent =
+        t.forgot;
+
+
+      const nameLabel =
+        document.querySelector(
+          'label[for="displayName"]'
         );
 
-      const registerTab =
-        document.getElementById(
-          "registerTab"
-        );
 
-      const accountAction =
-        document.getElementById(
-          "accountAction"
-        );
+      if (nameLabel) {
 
-      const authForm =
-        document.getElementById(
-          "authForm"
-        );
+        nameLabel.textContent =
+          t.name;
 
-      const authMessage =
-        document.getElementById(
-          "authMessage"
-        );
+      }
 
-      const authTitle =
-        document.getElementById(
-          "authTitle"
-        );
 
-      const authSubtitle =
-        document.getElementById(
-          "authSubtitle"
-        );
-
-      const authEyebrow =
-        document.getElementById(
-          "authEyebrow"
-        );
-
-      const registerExtra =
-        document.getElementById(
-          "registerExtra"
-        );
-
-      const forgotPasswordRow =
-        document.getElementById(
-          "forgotPasswordRow"
-        );
-
-      const submitButton =
-        document.getElementById(
-          "submitButton"
-        );
-
-      const googleButtonText =
-        document.getElementById(
-          "googleButtonText"
-        );
-
-      const accountPrompt =
-        document.getElementById(
-          "accountPrompt"
-        );
-
-      const googleButton =
-        document.getElementById(
-          "googleButton"
-        );
-
-      const passwordToggle =
-        document.getElementById(
-          "passwordToggle"
-        );
-
-      const passwordInput =
-        document.getElementById(
-          "password"
-        );
-
-      const displayNameInput =
-        document.getElementById(
-          "displayName"
-        );
-
-      const forgotPassword =
-        document.getElementById(
-          "forgotPassword"
+      const emailLabel =
+        document.querySelector(
+          'label[for="email"]'
         );
 
 
-      const translations = {
+      if (emailLabel) {
 
-        es: {
+        emailLabel.textContent =
+          t.email;
 
-          eyebrow:
-            "Tu cuenta",
-
-          loginTitle:
-            "Bienvenido de nuevo",
-
-          loginSubtitle:
-            "Inicia sesión para acceder a tu espacio de NegocioKit.",
-
-          registerTitle:
-            "Crea tu cuenta",
-
-          registerSubtitle:
-            "Empieza a guardar tus herramientas y recursos.",
-
-          loginTab:
-            "Iniciar sesión",
-
-          registerTab:
-            "Crear cuenta",
-
-          name:
-            "Nombre",
-
-          email:
-            "Correo electrónico",
-
-          password:
-            "Contraseña",
-
-          passwordPlaceholder:
-            "Mínimo 8 caracteres",
-
-          show:
-            "Mostrar",
-
-          hide:
-            "Ocultar",
-
-          forgot:
-            "¿Olvidaste tu contraseña?",
-
-          loginButton:
-            "Iniciar sesión",
-
-          registerButton:
-            "Crear cuenta",
-
-          google:
-            "Continuar con Google",
-
-          divider:
-            "O continúa con",
-
-          promptLogin:
-            "¿Todavía no tienes cuenta?",
-
-          promptRegister:
-            "¿Ya tienes una cuenta?",
-
-          actionLogin:
-            "Crear una cuenta",
-
-          actionRegister:
-            "Iniciar sesión",
-
-          messagePlaceholder:
-            "",
-
-          invalidEmail:
-            "Ingresa un correo electrónico válido.",
-
-          passwordShort:
-            "La contraseña debe tener al menos 8 caracteres.",
-
-          nameRequired:
-            "Ingresa tu nombre.",
-
-          demo:
-            "La conexión con Firebase se configurará en el siguiente paso."
-
-        },
+      }
 
 
-        en: {
-
-          eyebrow:
-            "Your account",
-
-          loginTitle:
-            "Welcome back",
-
-          loginSubtitle:
-            "Sign in to access your NegocioKit workspace.",
-
-          registerTitle:
-            "Create your account",
-
-          registerSubtitle:
-            "Start saving your tools and resources.",
-
-          loginTab:
-            "Sign in",
-
-          registerTab:
-            "Create account",
-
-          name:
-            "Name",
-
-          email:
-            "Email address",
-
-          password:
-            "Password",
-
-          passwordPlaceholder:
-            "Minimum 8 characters",
-
-          show:
-            "Show",
-
-          hide:
-            "Hide",
-
-          forgot:
-            "Forgot your password?",
-
-          loginButton:
-            "Sign in",
-
-          registerButton:
-            "Create account",
-
-          google:
-            "Continue with Google",
-
-          divider:
-            "Or continue with",
-
-          promptLogin:
-            "Don't have an account yet?",
-
-          promptRegister:
-            "Already have an account?",
-
-          actionLogin:
-            "Create an account",
-
-          actionRegister:
-            "Sign in",
-
-          messagePlaceholder:
-            "",
-
-          invalidEmail:
-            "Enter a valid email address.",
-
-          passwordShort:
-            "Password must contain at least 8 characters.",
-
-          nameRequired:
-            "Enter your name.",
-
-          demo:
-            "Firebase authentication will be connected in the next step."
-
-        }
-
-      };
+      const passwordLabel =
+        document.querySelector(
+          'label[for="password"]'
+        );
 
 
-      function setMessage(
-        message,
-        type
+      if (passwordLabel) {
+
+        passwordLabel.textContent =
+          t.password;
+
+      }
+
+    }
+
+
+    function setLanguage(
+      language
+    ) {
+
+      if (
+        language !== "es" &&
+        language !== "en"
       ) {
 
-        authMessage.textContent =
-          message;
-
-        authMessage.className =
-          "nk-auth-message " +
-          type;
+        return;
 
       }
 
 
-      function clearMessage() {
+      currentLanguage =
+        language;
 
-        authMessage.textContent =
-          "";
 
-        authMessage.className =
-          "nk-auth-message";
-
-      }
-
-
-      function setMode(mode) {
-
-        currentMode = mode;
-
-        clearMessage();
-
-
-        const isLogin =
-          mode === "login";
-
-
-        loginTab.classList.toggle(
-          "active",
-          isLogin
-        );
-
-
-        registerTab.classList.toggle(
-          "active",
-          !isLogin
-        );
-
-
-        loginTab.setAttribute(
-          "aria-selected",
-          String(isLogin)
-        );
-
-
-        registerTab.setAttribute(
-          "aria-selected",
-          String(!isLogin)
-        );
-
-
-        registerExtra.classList.toggle(
-          "visible",
-          !isLogin
-        );
-
-
-        forgotPasswordRow.style.display =
-          isLogin
-            ? "flex"
-            : "none";
-
-
-        if (isLogin) {
-
-          authTitle.textContent =
-            translations[
-              currentLanguage
-            ].loginTitle;
-
-          authSubtitle.textContent =
-            translations[
-              currentLanguage
-            ].loginSubtitle;
-
-          submitButton.textContent =
-            translations[
-              currentLanguage
-            ].loginButton;
-
-          accountPrompt.textContent =
-            translations[
-              currentLanguage
-            ].promptLogin;
-
-          accountAction.textContent =
-            translations[
-              currentLanguage
-            ].actionLogin;
-
-        } else {
-
-          authTitle.textContent =
-            translations[
-              currentLanguage
-            ].registerTitle;
-
-          authSubtitle.textContent =
-            translations[
-              currentLanguage
-            ].registerSubtitle;
-
-          submitButton.textContent =
-            translations[
-              currentLanguage
-            ].registerButton;
-
-          accountPrompt.textContent =
-            translations[
-              currentLanguage
-            ].promptRegister;
-
-          accountAction.textContent =
-            translations[
-              currentLanguage
-            ].actionRegister;
-
-        }
-
-
-        updateStaticLabels();
-
-      }
-
-
-      function updateStaticLabels() {
-
-        const t =
-          translations[
-            currentLanguage
-          ];
-
-
-        authEyebrow.textContent =
-          t.eyebrow;
-
-
-        loginTab.textContent =
-          t.loginTab;
-
-
-        registerTab.textContent =
-          t.registerTab;
-
-
-        googleButtonText.textContent =
-          t.google;
-
-
-        passwordToggle.textContent =
-          passwordInput.type === "password"
-            ? t.show
-            : t.hide;
-
-
-        passwordInput.placeholder =
-          t.passwordPlaceholder;
-
-
-        forgotPassword.textContent =
-          t.forgot;
-
-
-        const displayNameLabel =
-          document.querySelector(
-            'label[for="displayName"]'
-          );
-
-        if (displayNameLabel) {
-
-          displayNameLabel.textContent =
-            t.name;
-
-        }
-
-
-        const emailLabel =
-          document.querySelector(
-            'label[for="email"]'
-          );
-
-        if (emailLabel) {
-
-          emailLabel.textContent =
-            t.email;
-
-        }
-
-
-        const passwordLabel =
-          document.querySelector(
-            'label[for="password"]'
-          );
-
-        if (passwordLabel) {
-
-          passwordLabel.textContent =
-            t.password;
-
-        }
-
-      }
-
-
-      function setLanguage(language) {
-
-        if (
-          language !== "es" &&
-          language !== "en"
-        ) {
-          return;
-        }
-
-
-        currentLanguage =
-          language;
-
-
-        document.documentElement.lang =
-          language;
-
-
-        document
-          .querySelectorAll(
-            "[data-language]"
-          )
-          .forEach(
-            function (button) {
-
-              const active =
-                button.dataset.language ===
-                language;
-
-              button.classList.toggle(
-                "active",
-                active
-              );
-
-              button.setAttribute(
-                "aria-pressed",
-                String(active)
-              );
-
-            }
-          );
-
-
-        updateStaticLabels();
-
-        setMode(currentMode);
-
-      }
-
-
-      function isValidEmail(value) {
-
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-          .test(value);
-
-      }
-
-
-      function validateForm() {
-
-        const email =
-          document
-            .getElementById("email")
-            .value
-            .trim();
-
-        const password =
-          passwordInput.value;
-
-
-        if (!isValidEmail(email)) {
-
-          setMessage(
-            translations[
-              currentLanguage
-            ].invalidEmail,
-            "error"
-          );
-
-          document
-            .getElementById("email")
-            .focus();
-
-          return false;
-
-        }
-
-
-        if (password.length < 8) {
-
-          setMessage(
-            translations[
-              currentLanguage
-            ].passwordShort,
-            "error"
-          );
-
-          passwordInput.focus();
-
-          return false;
-
-        }
-
-
-        if (
-          currentMode === "register" &&
-          displayNameInput.value.trim().length < 2
-        ) {
-
-          setMessage(
-            translations[
-              currentLanguage
-            ].nameRequired,
-            "error"
-          );
-
-          displayNameInput.focus();
-
-          return false;
-
-        }
-
-
-        return true;
-
-      }
-
-
-      loginTab.addEventListener(
-        "click",
-        function () {
-
-          setMode("login");
-
-        }
-      );
-
-
-      registerTab.addEventListener(
-        "click",
-        function () {
-
-          setMode("register");
-
-        }
-      );
-
-
-      accountAction.addEventListener(
-        "click",
-        function () {
-
-          setMode(
-            currentMode === "login"
-              ? "register"
-              : "login"
-          );
-
-        }
-      );
+      document.documentElement.lang =
+        language;
 
 
       document
@@ -1598,130 +1626,618 @@
         .forEach(
           function (button) {
 
-            button.addEventListener(
-              "click",
-              function () {
+            const active =
+              button.dataset.language ===
+              language;
 
-                setLanguage(
-                  button.dataset.language
-                );
 
-              }
+            button.classList.toggle(
+              "active",
+              active
+            );
+
+
+            button.setAttribute(
+              "aria-pressed",
+              String(active)
             );
 
           }
         );
 
 
-      passwordToggle.addEventListener(
-        "click",
-        function () {
+      setMode(
+        currentMode
+      );
 
-          const isPassword =
-            passwordInput.type ===
-            "password";
+    }
 
 
-          passwordInput.type =
-            isPassword
-              ? "text"
-              : "password";
+    function validEmail(
+      value
+    ) {
+
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        .test(value);
+
+    }
 
 
-          updateStaticLabels();
+    function validateForm() {
+
+      const email =
+        emailInput.value
+          .trim();
+
+      const password =
+        passwordInput.value;
+
+
+      if (
+        !validEmail(email)
+      ) {
+
+        showMessage(
+          currentText().invalidEmail,
+          "error"
+        );
+
+        emailInput.focus();
+
+        return false;
+
+      }
+
+
+      if (
+        password.length < 8
+      ) {
+
+        showMessage(
+          currentText().passwordShort,
+          "error"
+        );
+
+        passwordInput.focus();
+
+        return false;
+
+      }
+
+
+      if (
+        currentMode === "register" &&
+        displayNameInput.value
+          .trim()
+          .length < 2
+      ) {
+
+        showMessage(
+          currentText().nameRequired,
+          "error"
+        );
+
+        displayNameInput.focus();
+
+        return false;
+
+      }
+
+
+      return true;
+
+    }
+
+
+    function firebaseErrorMessage(
+      error
+    ) {
+
+      switch (
+        error?.code
+      ) {
+
+        case "auth/email-already-in-use":
+
+          return currentText().emailAlready;
+
+
+        case "auth/invalid-credential":
+
+        case "auth/wrong-password":
+
+        case "auth/user-not-found":
+
+          return currentText().invalidCredentials;
+
+
+        case "auth/weak-password":
+
+          return currentText().weakPassword;
+
+
+        case "auth/popup-closed-by-user":
+
+          return currentText().popupClosed;
+
+
+        case "auth/user-disabled":
+
+          return currentText().accountDisabled;
+
+
+        case "auth/too-many-requests":
+
+          return currentText().tooManyRequests;
+
+
+        default:
+
+          return currentText().genericError;
+
+      }
+
+    }
+
+
+    async function ensureUserProfile(
+      user,
+      displayNameOverride = ""
+    ) {
+
+      const userRef =
+        doc(
+          db,
+          "users",
+          user.uid
+        );
+
+
+      const existing =
+        await getDoc(
+          userRef
+        );
+
+
+      const safeName =
+        (
+          displayNameOverride ||
+          user.displayName ||
+          user.email?.split("@")[0] ||
+          "Usuario"
+        )
+          .trim()
+          .slice(0, 80);
+
+
+      if (!existing.exists()) {
+
+        await setDoc(
+          userRef,
+          {
+            displayName:
+              safeName,
+
+            email:
+              user.email || "",
+
+            language:
+              currentLanguage,
+
+            createdAt:
+              serverTimestamp(),
+
+            updatedAt:
+              serverTimestamp()
+          }
+        );
+
+        return;
+
+      }
+
+
+      await setDoc(
+        userRef,
+        {
+          displayName:
+            safeName,
+
+          updatedAt:
+            serverTimestamp()
+        },
+        {
+          merge: true
+        }
+      );
+
+    }
+
+
+    async function redirectAfterLogin() {
+
+      window.location.href =
+        "dashboard.html";
+
+    }
+
+
+    async function loginWithEmail() {
+
+      const email =
+        emailInput.value
+          .trim();
+
+      const password =
+        passwordInput.value;
+
+
+      const credential =
+        await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
+
+      await ensureUserProfile(
+        credential.user
+      );
+
+
+      showMessage(
+        currentText().loginSuccess,
+        "success"
+      );
+
+
+      await redirectAfterLogin();
+
+    }
+
+
+    async function registerWithEmail() {
+
+      const email =
+        emailInput.value
+          .trim();
+
+      const password =
+        passwordInput.value;
+
+      const name =
+        displayNameInput.value
+          .trim();
+
+
+      const credential =
+        await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
+
+      await updateProfile(
+        credential.user,
+        {
+          displayName:
+            name
+        }
+      );
+
+
+      await ensureUserProfile(
+        credential.user,
+        name
+      );
+
+
+      showMessage(
+        currentText().accountCreated,
+        "success"
+      );
+
+
+      await redirectAfterLogin();
+
+    }
+
+
+    async function loginWithGoogle() {
+
+      const provider =
+        new GoogleAuthProvider();
+
+
+      provider.setCustomParameters(
+        {
+          prompt: "select_account"
+        }
+      );
+
+
+      const credential =
+        await signInWithPopup(
+          auth,
+          provider
+        );
+
+
+      await ensureUserProfile(
+        credential.user
+      );
+
+
+      showMessage(
+        currentText().googleSuccess,
+        "success"
+      );
+
+
+      await redirectAfterLogin();
+
+    }
+
+
+    async function resetPassword() {
+
+      const email =
+        emailInput.value
+          .trim();
+
+
+      if (
+        !validEmail(email)
+      ) {
+
+        showMessage(
+          currentText().invalidEmail,
+          "error"
+        );
+
+        emailInput.focus();
+
+        return;
+
+      }
+
+
+      await sendPasswordResetEmail(
+        auth,
+        email
+      );
+
+
+      showMessage(
+        currentText().resetSent,
+        "success"
+      );
+
+    }
+
+
+    loginTab.addEventListener(
+      "click",
+      function () {
+
+        setMode(
+          "login"
+        );
+
+      }
+    );
+
+
+    registerTab.addEventListener(
+      "click",
+      function () {
+
+        setMode(
+          "register"
+        );
+
+      }
+    );
+
+
+    accountAction.addEventListener(
+      "click",
+      function () {
+
+        setMode(
+          currentMode === "login"
+            ? "register"
+            : "login"
+        );
+
+      }
+    );
+
+
+    passwordToggle.addEventListener(
+      "click",
+      function () {
+
+        passwordInput.type =
+          passwordInput.type === "password"
+            ? "text"
+            : "password";
+
+
+        updateStaticLabels();
+
+      }
+    );
+
+
+    document
+      .querySelectorAll(
+        "[data-language]"
+      )
+      .forEach(
+        function (button) {
+
+          button.addEventListener(
+            "click",
+            function () {
+
+              setLanguage(
+                button.dataset.language
+              );
+
+            }
+          );
 
         }
       );
 
 
-      forgotPassword.addEventListener(
-        "click",
-        function () {
+    forgotPassword.addEventListener(
+      "click",
+      async function () {
 
-          clearMessage();
+        clearMessage();
+
+        try {
+
+          await resetPassword();
+
+        } catch (error) {
+
+          showMessage(
+            firebaseErrorMessage(error),
+            "error"
+          );
+
+        }
+
+      }
+    );
 
 
-          const email =
-            document
-              .getElementById("email")
-              .value
-              .trim();
+    googleButton.addEventListener(
+      "click",
+      async function () {
+
+        clearMessage();
+
+        setLoading(true);
 
 
-          if (!isValidEmail(email)) {
+        try {
 
-            setMessage(
-              translations[
-                currentLanguage
-              ].invalidEmail,
-              "error"
-            );
+          await setPersistence(
+            auth,
+            browserLocalPersistence
+          );
 
-            document
-              .getElementById("email")
-              .focus();
 
-            return;
+          await loginWithGoogle();
+
+        } catch (error) {
+
+          showMessage(
+            firebaseErrorMessage(error),
+            "error"
+          );
+
+          setLoading(false);
+
+        }
+
+      }
+    );
+
+
+    authForm.addEventListener(
+      "submit",
+      async function (event) {
+
+        event.preventDefault();
+
+        clearMessage();
+
+
+        if (
+          !validateForm()
+        ) {
+
+          return;
+
+        }
+
+
+        setLoading(true);
+
+
+        try {
+
+          await setPersistence(
+            auth,
+            browserLocalPersistence
+          );
+
+
+          if (
+            currentMode === "login"
+          ) {
+
+            await loginWithEmail();
+
+          } else {
+
+            await registerWithEmail();
 
           }
 
+        } catch (error) {
 
-          setMessage(
-            translations[
-              currentLanguage
-            ].demo,
-            "success"
+          showMessage(
+            firebaseErrorMessage(error),
+            "error"
           );
 
-        }
-      );
-
-
-      googleButton.addEventListener(
-        "click",
-        function () {
-
-          setMessage(
-            translations[
-              currentLanguage
-            ].demo,
-            "success"
-          );
+          setLoading(false);
 
         }
-      );
+
+      }
+    );
 
 
-      authForm.addEventListener(
-        "submit",
-        function (event) {
+    onAuthStateChanged(
+      auth,
+      async function (user) {
 
-          event.preventDefault();
+        if (!user) {
 
-
-          if (!validateForm()) {
-            return;
-          }
-
-
-          setMessage(
-            translations[
-              currentLanguage
-            ].demo,
-            "success"
-          );
+          return;
 
         }
-      );
+
+        /*
+         * Do not automatically redirect here while
+         * the user is interacting with the form.
+         *
+         * Authenticated users can still see the page
+         * until a successful action redirects them.
+         */
+
+      }
+    );
 
 
-      setLanguage("es");
+    setLanguage(
+      "es"
+    );
 
-      setMode("login");
-
-    })();
+    setMode(
+      "login"
+    );
 
   </script>
+
 
 </body>
 
