@@ -10,7 +10,7 @@ import {
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDoWBN2V-egvAU0e13BCUZC94swqiYC14",
+  apiKey: "AIzaSyDsLE4pV9C11CLhv0_XabH_h8IXPbuQS6g",
   authDomain: "negociokit-61f6d.firebaseapp.com",
   projectId: "negociokit-61f6d",
   storageBucket: "negociokit-61f6d.firebasestorage.app",
