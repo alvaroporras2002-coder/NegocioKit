@@ -10,7 +10,7 @@ import {
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDoWNB2V-egvAU0e13BCUZC94swqiYC14",
+  apiKey: "AIzaSyDoWBN2V-egvAU0e13BCUZC94swqiYC14",
   authDomain: "negociokit-61f6d.firebaseapp.com",
   projectId: "negociokit-61f6d",
   storageBucket: "negociokit-61f6d.firebasestorage.app",
@@ -19,11 +19,17 @@ const firebaseConfig = {
 };
 
 
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(
+  firebaseConfig
+);
 
-const auth = getAuth(app);
+const auth = getAuth(
+  app
+);
 
-const db = getFirestore(app);
+const db = getFirestore(
+  app
+);
 
 
 export {
